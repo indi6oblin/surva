@@ -24,13 +24,13 @@ var optionsProfileVisit = {
 	},
 }
 let optionsVisitorsProfile  = {
-	series: [70, 30],
-	labels: ['Male', 'Female'],
-	colors: ['#435ebe','#55c6e8'],
+	series: [100, 20, 10, 38, 2],
+	labels: ['a', 'b', 'c', 'd', 'e'],
+	colors: ['#435ebe', '#55c6e8', '#c603fc', '#03fc7f', '#fc037f'],
 	chart: {
 		type: 'donut',
-		width: '100%',
-		height:'350px'
+		width: '80%',
+		height:'300px'
 	},
 	legend: {
 		position: 'bottom'
@@ -38,7 +38,7 @@ let optionsVisitorsProfile  = {
 	plotOptions: {
 		pie: {
 			donut: {
-				size: '30%'
+				size: '20%'
 			}
 		}
 	}

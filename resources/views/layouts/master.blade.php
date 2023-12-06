@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
+    <!-- pie cart -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 <style>
     .form-group[class*=has-icon-].has-icon-left .form-select {
@@ -67,6 +70,36 @@
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- pie cart -->
+    <script>
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            // Set Data
+            const data = google.visualization.arrayToDataTable([
+                ['Country', 'Mhl'],
+                ['{{ $pertanyaan->opsi_1 }}', 54],
+                ['{{ $pertanyaan->opsi_2 }}', 48],
+                ['{{ $pertanyaan->opsi_3 }}', 44],
+                ['{{ $pertanyaan->opsi_4 }}', 23],
+                ['{{ $pertanyaan->opsi_5 }}', 14]
+            ]);
+
+            // Set Options
+            const options = {};
+
+
+            // Draw
+            const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+            chart.draw(data, options);
+        }
+    </script>
+
 
 
 
