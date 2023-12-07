@@ -300,7 +300,7 @@
                                     </div> --}}
                                     <div>
                                         <div class="card-header">
-                                            <h4>chart hasil {{ $pertanyaan->pertanyaan }}</h4>
+                                            <h4>{{ $pertanyaan->pertanyaan }}</h4>
                                         </div>
                                         <div id="myChart" style="width:100%; max-width:600px; height:350px;">
                                         </div>
@@ -327,6 +327,36 @@
             {{-- </section> --}}
 
         </div>
+
+    <!-- pie cart -->
+    <script>
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            // Set Data
+            const data = google.visualization.arrayToDataTable([
+                ['Country', 'Mhl'],
+                ['{{ $pertanyaan->opsi_1 }}', 54],
+                ['{{ $pertanyaan->opsi_2 }}', 48],
+                ['{{ $pertanyaan->opsi_3 }}', 44],
+                ['{{ $pertanyaan->opsi_4 }}', 23],
+                ['{{ $pertanyaan->opsi_5 }}', 14]
+            ]);
+
+            // Set Options
+            const options = {};
+
+
+            // Draw
+            const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+            chart.draw(data, options);
+        }
+    </script>
+
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
                 <div class="float-start">
