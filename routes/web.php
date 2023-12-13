@@ -57,6 +57,9 @@ Route::get('/dashboard_admin', [App\Http\Controllers\AdminController::class, 'in
 Route::get('/buatsurvei', [App\Http\Controllers\SurveiController::class, 'create'])->name('buat_survei');
 Route::post('/simpansurvei', [App\Http\Controllers\SurveiController::class, 'store'])->name('simpan_survei');
 
+Route::get('/buatsurvei2', [App\Http\Controllers\SurveiController::class, 'create2'])->name('buat_survei2');
+Route::post('/simpansurvei2', [App\Http\Controllers\SurveiController::class, 'store2'])->name('simpan_survei2');
+
 Route::get('/editprofil', [App\Http\Controllers\KlienController::class, 'edit'])->name('editprofil');
 Route::post('/simpan_datadiri/{id_klien}', [App\Http\Controllers\KlienController::class, 'update'])->name('simpan_datadiri');
 Route::post('/simpan_password/{id_klien}', [App\Http\Controllers\KlienController::class, 'updatePassword'])->name('simpan_password');
@@ -73,6 +76,12 @@ Route::get('/verifikasi', [App\Http\Controllers\SurveiController::class, 'index_
 // ----------------------------- menu sidebar admin ------------------------------//
 Route::get('/sortir_admin', [App\Http\Controllers\AdminController::class, 'sortir_admin'])->name('sortir_admin');
 Route::get('/detail_survei_sortir/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_survei_sortir'])->name('detail_survei_sortir');
+
+Route::post('/setuju/{id_survei}', [App\Http\Controllers\SurveiController::class, 'validasi_setuju'])->name('setuju');
+Route::post('/tolak/{id_survei}', [App\Http\Controllers\SurveiController::class, 'validasi_tolak'])->name('tolak');
+Route::post('/terima_bayar/{id_survei}', [App\Http\Controllers\SurveiController::class, 'terima_bayar'])->name('terima_bayar');
+Route::post('/tolak_bayar/{id_survei}', [App\Http\Controllers\SurveiController::class, 'tolak_bayar'])->name('tolak_bayar');
+
 Route::get('/detail_survei_home/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_survei_home'])->name('detail_survei_home');
 Route::get('/sudah_bayar', [App\Http\Controllers\AdminController::class, 'sudah_bayar'])->name('sudah_bayar');
 Route::get('/detail_sudah_bayar/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_sudah_bayar'])->name('detail_sudah_bayar');

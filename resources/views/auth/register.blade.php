@@ -6,7 +6,7 @@
                 <div id="auth-left">
                     <h1 class="auth-title">Buat Akun</h1>
                     <br>
-                    @if ($errors->any())
+                    {{-- @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -14,7 +14,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif --}}
                     @isset($route)
                         <form method="POST" action="{{ $route }}" class="md-float-material">
                         @else

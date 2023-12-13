@@ -40,7 +40,7 @@
                                     <th>No</th>
                                     <th>Nama Survei</th>
                                     <th>Jumlah Pertanyaan</th>
-                                    <th>Jumlah Poin</th>
+                                    <th style="max-width: 160px;">Alasan Dibatalkan</th>
                                     <th>Target Responden</th>
                                     <th>Target Hari</th>
                                     <th>Status</th>
@@ -54,7 +54,7 @@
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->judul }}</td>
                                     <td>{{ $item->total_pertanyaan }}</td>
-                                    <td>{{ $item->poin }}</td>
+                                    <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $item->deskripsi_validasi }}</td>
                                     <td>{{ $item->jumlah_responden }}</td>
                                     <td>{{ $item->target_days }}</td>
                                     <td>
@@ -84,7 +84,7 @@
                                             }
                                         @endphp
 
-                                        <span class="badge { $badgeColor }}">{{ $status }}</span>
+                                        <span class="badge {{ $badgeColor }}">{{ $status }}</span>
                                     </td>
                                     <td>
                                         <a href="{{ route('detail_dibatalkan', ['id_survei' => $item->id_survei]) }}">

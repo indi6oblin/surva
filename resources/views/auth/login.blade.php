@@ -7,11 +7,11 @@
                     {{-- message --}}
                     {!! Toastr::message() !!}
                     <h1 class="auth-title">APSIS</h1>
-                    @if (session()->has('error'))
+                    {{-- @if (session()->has('error'))
                         <div class="text-danger text-center text-bold">
                             {{ session()->get('error') }}
                         </div>
-                    @endif
+                    @endif --}}
                     <br>
                     {{-- <h6 class="">Masuk sebagai : <strong>Klien</strong></h6> --}}
                     <p class="auth-subtitle mb-3">Masuk sebagai : <strong>Klien</strong></p>

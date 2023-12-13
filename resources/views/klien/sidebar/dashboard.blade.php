@@ -57,6 +57,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="{{ route('buat_survei2') }}" class='sidebar-link'>
+                        <i class="bi bi-credit-card-fill"></i>
+                        <span>Buat Survei</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
                             @if(auth()->user())

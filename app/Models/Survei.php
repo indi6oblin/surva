@@ -14,7 +14,7 @@ class Survei extends Model
 
 
     protected $fillable = array(
-        'id_survei', 'id_klien', 'judul', 'deskripsi', 'deskripsi_bayar', 'tgl_mulai', 'tgl_selesai', 'jumlah_responden', 'bukti', 'poin', 'nominal', 'status',
+        'id_survei', 'id_klien', 'judul', 'deskripsi', 'deskripsi_validasi', 'rincian_harga', 'tgl_mulai', 'tgl_selesai', 'jumlah_responden', 'bukti', 'poin', 'nominal', 'status',
     );
 
     protected $enumStatus = ['Sortir','Belum Bayar','Sudah Bayar','Disetujui','Dibatalkan'];

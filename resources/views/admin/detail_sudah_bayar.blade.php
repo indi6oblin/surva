@@ -222,9 +222,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="basicInput"><strong>Rincian Pembayaran : </strong></label>
-                                    <p class="card-text">Rincian:<br>Rp.1,000 / 1 Responden<br>Rp.1,000 / 1
-                                        Hari<br>Rp.1,000
-                                        / 1 Poin<br>Rp.1,000 - Rp.100.000 / 1 Pertanyaan
+                                    <p class="card-text">{{ $survei->rincian_harga }}
                                     </p>
                                 </div>
                                 <div class="form-group mb-3">
@@ -267,8 +265,6 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Tutup</button>
-                                    <button type="button" class="btn btn-success"
-                                        onclick="handleSetuju()">Setuju</button>
                                 </div>
                             </div>
                         </div>
@@ -280,7 +276,7 @@
                         <div class="card text-center">
                             <button class="btn btn-success btn-lg font-semibold" data-bs-toggle="modal"
                                 data-bs-target="#modalSetuju">
-                                Setuju
+                                Terima
                             </button>
                         </div>
 
@@ -290,7 +286,7 @@
                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modalSetujuLabel">Setuju</h5>
+                                        <h5 class="modal-title" id="modalSetujuLabel">Validasi Pembayaran</h5>
                                         <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
                                             aria-label="Close">
                                             <i data-feather="x"></i>
@@ -299,16 +295,17 @@
                                     <div class="modal-body">
                                         <div>
                                             <label class="form-check-label">
-                                                Yakin menyetujui survei?
+                                                Apakah Anda yakin telah menerima pembayaran ini?
                                             </label>
                                         </div>
                                     </div>
+                                    <form action="{{ route('terima_bayar', $survei->id_survei) }}" method="post" id="paidForm">
+                                        @csrf
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Tutup</button>
-                                        <button type="button" class="btn btn-success"
-                                            onclick="handleSetuju()">Setuju</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                        <button type="submit" class="btn btn-success">Ya</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -319,17 +316,19 @@
                         <div class="card text-center">
                             <button class="btn btn-danger btn-lg font-semibold" data-bs-toggle="modal"
                                 data-bs-target="#modalTidak">
-                                Tidak
+                                Tolak
                             </button>
                         </div>
 
                         <!-- Modal Tidak -->
                         <div class="modal fade text-left" id="modalTidak" tabindex="-1"
                             aria-labelledby="modalTidakLabel" style="display: none;" aria-hidden="true">
+                            <form action="{{ route('tolak_bayar', $survei->id_survei) }}" method="post" id="unpaidForm">
+                                @csrf
                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modalTidakLabel">Alasan Pembatalan</h5>
+                                        <h5 class="modal-title" id="modalTidakLabel">Alasan Bukti Pembayaran Ditolak</h5>
                                         <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
                                             aria-label="Close">
                                             <i data-feather="x"></i>
@@ -337,22 +336,21 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadio"
-                                                id="flexRadio">
-                                            <label class="form-check-label" for="flexRadio">
-                                                Pembayaran kurang
-                                            </label>
+                                            <div class="input-group">
+                                                <textarea class="form-control" id="deskripsi_validasi" name="deskripsi_validasi" rows="5" placeholder="Berikan Alasannya Disini" required></textarea>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                             Tutup
                                         </button>
-                                        <button type="button" class="btn btn-success"
-                                            onclick="handleTidak()">Setuju</button>
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="tolakBayar()">Tolak</button>
                                     </div>
                                 </div>
                             </div>
+                            </form>
 
                             <!-- Modal Setuju -->
                             <div class="modal fade text-left" id="modalSetuju" tabindex="-1"
@@ -400,6 +398,24 @@
 
         {{-- </div> --}}
         {{-- </section> --}}
+
+        <script>
+            function tolakBayar() {
+                // Menampilkan konfirmasi
+                var konfirmasi = confirm('Apakah Anda yakin ingin menolak bukti pembayaran ini?');
+        
+                // Memeriksa apakah pengguna menyetujui atau membatalkan
+                if (konfirmasi) {
+                    // Jika disetujui, kirim formulir
+                    document.getElementById('unpaidForm').submit();
+                } else {
+                    // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
+                    alert('Anda telah menolak bukti pembayaran.');
+                    // Hindari pengiriman formulir dengan menghentikan peristiwa default
+                    event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
+                }
+            }
+        </script>
 
     </div>
     <footer>

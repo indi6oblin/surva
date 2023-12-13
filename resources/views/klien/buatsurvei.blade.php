@@ -271,8 +271,11 @@
                     </div>
                 </section>
             </div>
-            <button type="button" class="btn btn-primary" onclick="addSection()">Tambah Pertanyaan</button>
+            <button type="button" class="btn btn-success" onclick="addSection()">Tambah Pertanyaan</button>
+            <button type="button" class="btn btn-danger" onclick="removeSection()">Hapus Pertanyaan</button>
             </div>
+            <br>
+            <br>
 
             {{-- <input type="hidden" name="pertanyaanArray" id="pertanyaanArrayInput" value=""> --}}
             <div class="col-md-12 text-center">

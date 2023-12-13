@@ -177,7 +177,11 @@
                     <div class="card-header">
                         <h4 class="card-title">Bukti Pembayaran</h4>
                     </div>
+                @isset($route)
+                <form method="POST" action="{{ $route }}" class="md-float-material">
+                @else
                     <form action="{{ route('simpan_pembayaran') }}" method="POST" enctype="multipart/form-data" id="buktiForm">
+                        @endisset
                         @csrf
                         <input type="hidden" name="id_survei" value="{{ $survei->id_survei }}">
                     <div class="card-body">
@@ -210,14 +214,21 @@
                 </form>
                 </div>
             </section>
+            
             <script>
                 function confirmSubmission() {
-                    if (window.confirm("Apakah Anda yakin ingin mengirim bukti pembayaran?")) {
-                        // If the user clicks "OK", submit the form
+                    // Menampilkan konfirmasi
+                    var konfirmasi = confirm('Apakah Anda yakin ingin mengirim bukti pembayaran?');
+
+                    // Memeriksa apakah pengguna menyetujui atau membatalkan
+                    if (konfirmasi) {
+                        // Jika disetujui, kirim formulir
                         document.getElementById('buktiForm').submit();
-                        alert("Bukti pembayaran telah berhasil disimpan.");
                     } else {
-                        alert("Pengiriman bukti pembayaran dibatalkan.");
+                        // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
+                        alert('Pengiriman bukti pembayaran dibatalkan.');
+                        // Hindari pengiriman formulir dengan menghentikan peristiwa default
+                        event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
                     }
                 }
             </script>

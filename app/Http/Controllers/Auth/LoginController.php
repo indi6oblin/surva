@@ -61,9 +61,21 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $request->validate([
+        $validator = $request->validate([
             'username' => 'required|string',
-            'password' => 'required|string',
+            'password'  => [
+                'required',
+                'string',
+                'min:8',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+            ],
+        ],[
+            'username.required' => 'Username harus diisi.',
+            'password.required' => 'Password wajib diisi.',
+            'password.string' => 'Format password tidak valid.',
+            'password.min' => 'Panjang password minimal :min karakter.',
+            'password.regex' => 'Password harus mengandung setidaknya satu huruf kecil, satu huruf besar, satu angka.',
+                                'Password tidak boleh mengandung simbol.',
         ]);
 
         $username    = $request->username;

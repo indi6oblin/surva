@@ -66,12 +66,36 @@ class RegisterController extends Controller
     public function storeUser(Request $request)
     {
 
-        $request->validate([
+        $validator = $request->validate([
             'nama'      => 'required|string|max:255',
             'username'  => 'required|string|max:255|unique:klien',
             'email'     => 'required|string|email|max:255|unique:klien',
-            'password'  => 'required|string|min:8|confirmed',
+            'password'  => [
+                            'required',
+                            'string',
+                            'min:8',
+                            'confirmed',
+                            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+                            'regex:/^[^\W_]+$/',
+                        ],
             'password_confirmation' => 'required',
+        ], [
+            'nama.required' => 'Nama harus diisi.',
+            'nama.max' => 'Panjang nama tidak boleh melebihi :max karakter.',
+            'username.required' => 'Username harus diisi.',
+            'username.max' => 'Panjang username tidak boleh melebih :max karakter.',
+            'username.unique' => 'Username sudah digunakan.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.max' => 'Panjang email tidak boleh melebihi :max karakter.',
+            'email.unique' => 'Email sudah digunakan.',
+            'password.required' => 'Password wajib diisi.',
+            'password.string' => 'Format password tidak valid.',
+            'password.min' => 'Panjang password minimal :min karakter.',
+            'password.confirmed' => 'Konfirmasi password tidak sesuai.',
+            'password.regex' => 'Password harus mengandung setidaknya satu huruf kecil, satu huruf besar, dan satu angka.',
+                                'Password tidak boleh mengandung simbol.',
+            'password_confirmation.required' => 'Kolom konfirmasi password wajib diisi.',
         ]);
 
 

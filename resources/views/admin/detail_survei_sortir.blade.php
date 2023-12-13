@@ -310,6 +310,8 @@
                         style="display: none;" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable" role="document">
                             <div class="modal-content">
+                                <form action="{{ route('setuju', $survei->id_survei) }}" method="post" id="setujuForm">
+                                    @csrf
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="modalSetujuLabel">Pembayaran</h5>
                                     <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
@@ -319,41 +321,56 @@
                                 </div>
                                 <div class="modal-body">
                                     <!-- Form di dalam modal -->
-                                    <form>
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="form-label">Total Harga</label>
+                                            <label for="nominal" class="form-label">Total Harga</label>
                                             <div class="input-group">
                                                 <span class="input-group-text">Rp</span>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1"
-                                                    placeholder="Ketik harga">
+                                                <input type="number" class="form-control" name="nominal"
+                                                    placeholder="Masukkan Harga Survei" required>
                                             </div>
+                                            {{-- @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror --}}
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="form-label">Rincian Harga</label>
+                                            <label for="rincian_harga" class="form-label">Rincian Harga</label>
                                             <div class="input-group">
-                                                <textarea class="form-control" rows="5" placeholder="Masukkan detail harga di sini..."></textarea>
+                                                <textarea class="form-control form-control" id="rincian_harga" name="rincian_harga"
+                                                 rows="5" placeholder="Masukkan detail harga di sini..." required></textarea>
                                             </div>
+                                            {{-- @error('rincian_harga')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror --}}
                                         </div>
                                         <!-- Dropdown di dalam modal -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlSelect1" class="form-label">Jumlah Poin</label>
-                                            <select class="form-select" id="exampleFormControlSelect1">
-                                                <option value="1">5</option>
-                                                <option value="2">10</option>
-                                                <option value="3">15</option>
-                                                <option value="4">20</option>
-                                                <option value="5">25</option>
-                                            </select>
+                                            <label for="poin" class="form-label">Jumlah Poin</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="poin" name="poin" placeholder="Masukkan Jumlah Poin" required>
+                                            </div>
+                                            {{-- @error('poin')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror --}}
                                         </div>
-                                    </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Tutup</button>
-                                    <button type="button" class="btn btn-success"
-                                        onclick="handleSetuju()">Setuju</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-success ml-auto" onclick="confirmSetuju()">
+                                        {{-- <a href="{{ route('setuju', $survei->id_survei) }}" class="btn btn-success ml-auto">
+                                            Setuju
+                                        </a> --}}
+                                        Setuju
+                                    </button>
                                 </div>
+
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -364,15 +381,17 @@
                     <div class="card text-center">
                         <button class="btn btn-danger btn-lg font-semibold" data-bs-toggle="modal"
                             data-bs-target="#modalTidak">
-                            Tidak
+                            Tolak
                         </button>
                     </div>
 
-                    <!-- Modal Tidak -->
+                    <!-- Modal Tolak -->
                     <div class="modal fade text-left" id="modalTidak" tabindex="-1" aria-labelledby="modalTidakLabel"
                         style="display: none;" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable" role="document">
                             <div class="modal-content">
+                                <form action="{{ route('tolak', $survei->id_survei) }}" method="post" id="tolakForm">
+                                    @csrf
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="modalTidakLabel">Alasan Pembatalan</h5>
                                     <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
@@ -381,38 +400,20 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio">
-                                        <label class="form-check-label" for="flexRadio">
-                                            Mengandung sara
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio">
-                                        <label class="form-check-label" for="flexRadio">
-                                            Pertanyaan sensitif
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio">
-                                        <label class="form-check-label" for="flexRadio">
-                                            Kesalahan penulisan
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadio" id="flexRadio">
-                                        <label class="form-check-label" for="flexRadio">
-                                            Rasis
-                                        </label>
+                                    <div class="mb-3">
+                                        {{-- <label for="exampleFormControlInput1" class="form-label">Berikan Alasan</label> --}}
+                                        <div class="input-group">
+                                            <textarea class="form-control" id="deskripsi_validasi" name="deskripsi_validasi" rows="5" placeholder="Berikan Alasannya Disini" required></textarea>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                         Tutup
                                     </button>
-                                    <button type="button" class="btn btn-success"
-                                        onclick="handleTidak()">Setuju</button>
+                                    <button type="submit" class="btn btn-danger" onclick="confirmTolak()">Tolak</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -440,4 +441,39 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        function confirmSetuju() {
+            // Menampilkan konfirmasi
+            var konfirmasi = confirm('Apakah Anda yakin ingin menyetujui survei ini?');
+    
+            // Memeriksa apakah pengguna menyetujui atau membatalkan
+            if (konfirmasi) {
+                // Jika disetujui, kirim formulir
+                document.getElementById('setujuForm').submit();
+            } else {
+                // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
+                alert('Anda telah membatalkan penyetujuan.');
+                // Hindari pengiriman formulir dengan menghentikan peristiwa default
+                event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
+            }
+        }
+    
+        function confirmTolak() {
+            // Menampilkan konfirmasi
+            var konfirmasi = confirm('Apakah Anda yakin ingin menyetujui survei ini?');
+
+            // Memeriksa apakah pengguna menyetujui atau membatalkan
+            if (konfirmasi) {
+                // Jika disetujui, kirim formulir
+                document.getElementById('tolakForm').submit();
+            } else {
+                // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
+                alert('Anda telah membatalkan penyetujuan.');
+                // Hindari pengiriman formulir dengan menghentikan peristiwa default
+                event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
+            }
+        }
+    </script>
+    
 @endsection

@@ -158,7 +158,7 @@
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <h4 class="card-title">Judul dan Deskripsi</h4>
                         <a href="#">
-                            <span class="badge btn-danger btn-lg" style="font-size: 24px;">Pertanyaan Sensitif</span>
+                            <span class="badge btn-danger btn-lg" style="font-size: 24px;">{{ $survei->deskripsi_validasi }}</span>
                         </a>
                     </div>
                     <div class="card-body">

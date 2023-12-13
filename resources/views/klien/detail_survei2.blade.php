@@ -155,8 +155,11 @@
             </div>
             <section class="section">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <h4 class="card-title">Judul dan Deskripsi</h4>
+                        <a href="#">
+                            <span class="badge btn-danger btn-lg" style="font-size: 24px;">{{ $survei->deskripsi_validasi }}</span>
+                        </a>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -288,20 +291,10 @@
                                             {{ $pertanyaan->opsi_5 }}
                                         </label>
                                     </div>
-                                    {{-- <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-11">
-                                            <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1">
-                                        </div>
-                                    </div> --}}
-                                    <div>
-                                        <div class="card-header">
+                                    <div class="form-check">
+                                        {{-- <div class="card-header">
                                             <h4>{{ $pertanyaan->pertanyaan }}</h4>
-                                        </div>
+                                        </div> --}}
                                         <div id="myChart" style="width:100%; max-width:600px; height:350px;">
                                         </div>
                                     </div>
@@ -312,23 +305,9 @@
                 @endforeach
             </section>
 
-
-
-            {{-- <section class="row">
-                <div class="col-12 col-lg-9">
-                </div>
-                <div class="col-3 col-lg-3">
-
-                    {{-- user profile modal --}}
-
-            {{-- end user profile modal --}}
-
-            {{-- </div> --}}
-            {{-- </section> --}}
-
         </div>
 
-    <!-- pie cart -->
+    <!-- pie chart -->
     <script>
         google.charts.load('current', {
             'packages': ['corechart']

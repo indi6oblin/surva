@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Survei;
 use App\Models\Pertanyaan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use DB;
 
 class SurveiController extends Controller
@@ -42,6 +43,11 @@ class SurveiController extends Controller
     public function create()
     {
         return view('klien.buatsurvei');
+    }
+
+    public function create2()
+    {
+        return view('klien.buatsurvei2');
     }
 
     /**
@@ -133,30 +139,106 @@ class SurveiController extends Controller
         }
     }
 
-    public function validasi_admin(Request $request, $id_survei)
+    public function store2(Request $request)
     {
-        try {
-            $request->validate([
-                'deskripsi_bayar' => 'required',
-                'nominal' => 'required',
+        
+    }
+
+    public function validasi_setuju(Request $request, $id_survei)
+    {
+        // try {
+            $validator = $request->validate([
+                'rincian_harga' => 'required|string',
+                'nominal' => 'required|numeric',
                 'poin' => 'required|numeric',
 
-            ]);
-            $survei = Survei::where('id_survei', $id_survei)->first();
-            $survei = Survei::where('id_survei', $id_survei)->pertanyaan->count();
-
-            $survei->update([
-                'deskripsi_bayar' => $request->deskripsi_bayar,
-                'nominal' => $request->nominal,
-                'poin' => $request->poin,
-                'status' => 'Belum Bayar',
+            ],[
+                'rincian_harga.required' => 'Rincian harga harus diisi.',
+                'nominal.required' => 'Nominal harga harus diisi.',
+                'poin.required' => 'Poin survei harus diisi.',
             ]);
 
-            return redirect()->back();
 
-        } catch(\Exception $e) {
-            return dump();
+            $survei = Survei::find($id_survei);
+            // $survei = Survei::where('id_survei', $id_survei)->pertanyaan->count();
+
+            if (!$survei) {
+                return redirect()->back()->with('error', 'Survei not found');
+            }    
+
+            $survei->status = 'Belum Bayar';
+            $survei->nominal = $request->input('nominal');
+            $survei->rincian_harga = $request->input('rincian_harga');
+            $survei->poin = $request->input('poin');
+            
+            // Save the changes
+            $survei->save();
+
+            return redirect()->route('sudah_bayar')->with('success', 'Survei Telah Divalidasi');
+
+        // } catch(\Exception $e) {
+        //     return dump();
+        // }
+    }
+
+    public function validasi_tolak(Request $request, $id_survei)
+    {
+        $validator = $request->validate([
+            'deskripsi_validasi' => 'required|string',
+        ],[
+            'deskripsi_validasi.required' => 'Alasan dibatalkan harus diisi.',
+        ]);
+
+        $survei = Survei::find($id_survei);
+        if (!$survei) {
+            return redirect()->back()->with('error', 'Survei not found');
         }
+
+        // Update the survey status and other fields
+        $survei->status = 'Ditolak';
+        $survei->deskripsi_validasi = $request->input('deskripsi_validasi');
+
+        // Save the changes
+        $survei->save();
+
+        return redirect()->route('dibatalkan')->with('success', 'Survei Berhasil Ditolak');
+
+    }
+
+    public function terima_bayar($id_survei)
+    {
+        $survei = Survei::find($id_survei);
+        if (!$survei) {
+            return redirect()->back()->with('error', 'Survei not found');
+        }
+
+        // Update the survey status and other fields
+        $survei->status = 'Disetujui';
+
+        $survei->save();
+
+        return redirect()->route('disetujui')->with('success', 'Survei Berhasil Ditolak');
+    }
+
+    public function tolak_bayar(Request $request, $id_survei)
+    {
+        $validator = $request->validate([
+            'deskripsi_validasi' => 'required|string',
+        ],[
+            'deskripsi_validasi.required' => 'Alasan dibatalkan harus diisi.',
+        ]);
+
+        $survei = Survei::find($id_survei);
+        if (!$survei) {
+            return redirect()->back()->with('error', 'Survei not found');
+        }
+
+        $survei->status = 'Ditolak';
+        $survei->deskripsi_validasi = $request->input('deskripsi_validasi');
+        
+        $survei->save();
+
+        return redirect()->route('dibatalkan')->with('success', 'Survei Berhasil Ditolak');
     }
 
     public function store_pembayaran(Request $request)

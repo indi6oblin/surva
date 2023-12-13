@@ -20,10 +20,11 @@ class CreateSurveiTable extends Migration
             $table->unsignedInteger('jumlah_responden')->nullable();
             $table->unsignedInteger('poin')->nullable();
             $table->string('bukti')->nullable();
-            $table->string('nominal')->nullable();
+            $table->unsignedInteger('nominal')->nullable();
             $table->string('judul', 256)->nullable();
             $table->text('deskripsi')->nullable();
-            $table->text('deskripsi_bayar')->nullable();
+            $table->text('deskripsi_validasi')->nullable();
+            $table->text('rincian_harga')->nullable();
             $table->date('tgl_mulai')->nullable();
             $table->date('tgl_selesai')->nullable();
             $table->enum('status', ['Sortir','Belum Bayar','Sudah Bayar','Disetujui','Dibatalkan'])->default('Sortir');

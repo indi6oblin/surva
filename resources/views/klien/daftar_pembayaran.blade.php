@@ -192,7 +192,7 @@
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $survei->judul }}</td>
                                     <td>{{ $survei->nominal }}</td>
-                                    <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->deskripsi_bayar }}</td>
+                                    <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->rincian_harga }}</td>
                                     <td>
                                         <a href="{{ route('pembayaran', ['id_survei' => $survei->id_survei]) }}"><i class="bi bi-wallet2"> </i>Bayar</button>
                                     </td>
