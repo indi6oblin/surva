@@ -48,6 +48,18 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
+                    <a href="{{ route('kelola_klien') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Klien</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('kelola_responden') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Responden</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
                             @if (auth()->user())
@@ -61,12 +73,12 @@
                     </div>
                 </li>
 
-                <li class="sidebar-item">
+                {{-- <li class="sidebar-item">
                     <a href="{{ route('change/password') }}" class='sidebar-link'>
                         <i class="bi bi-shield-lock"></i>
                         <span>Change Password</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="sidebar-item  has-sub visually-hidden">
                     <a href="#" class='sidebar-link'>
@@ -81,13 +93,29 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('logout_admin') }}" class='sidebar-link'>
+                    <a href="{{ route('logout_admin') }}" class='sidebar-link' onclick="confirmSubmission()">
                         <i class="bi bi-box-arrow-right"></i>
-                        <span>Log Out</span>
+                        <span>Keluar</span>
                     </a>
                 </li>
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
+    <script>
+        function confirmSubmission() {
+            // Menampilkan konfirmasi
+            var konfirmasi = confirm('Apakah Anda yakin ingin keluar?');
+
+            // Memeriksa apakah pengguna menyetujui atau membatalkan
+            if (konfirmasi) {
+                document.getElementById('buktiForm').submit();
+            } else {
+                // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
+                alert('Anda batal keluar.');
+                // Hindari pengiriman formulir dengan menghentikan peristiwa default
+                event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
+            }
+        }
+    </script>
 </div>

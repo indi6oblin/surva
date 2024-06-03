@@ -7,6 +7,8 @@ use App\Models\Survei;
 use App\Models\Pertanyaan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use DB;
 
 class SurveiController extends Controller
@@ -86,7 +88,8 @@ class SurveiController extends Controller
             'tgl_mulai' => $request->tgl_mulai,
             'tgl_selesai' => $request->tgl_selesai,
             'jumlah_responden' => $request->jumlah_responden,
-            'status' => 'Sortir'
+            'status' => 'Sortir',
+            'poin' => '5',
         ]);
 
 
@@ -126,9 +129,18 @@ class SurveiController extends Controller
         //     ]);
         // }
         
-        return response()->json([
-            'message' => 'Survei dan Pertanyaan berhasil disimpan'
-        ], 200);
+        // return response()->json([
+        //     'message' => 'Survei dan Pertanyaan berhasil disimpan'
+        // ], 200);
+        // $detailSurveiUrl = URL::route('detail_survei', ['parameter_survei' => $id_survei]);
+
+        // // Menambahkan link dalam respons JSON
+        // return response()->json([
+        //     'message' => 'Survei dan Pertanyaan berhasil disimpan',
+        //     'detail_survei_url' => $detailSurveiUrl,
+        // ], 200);
+        return Redirect::route('detail_survei')
+            ->with('message', 'Survei dan Pertanyaan berhasil disimpan');
 
         // Add questions and options
         return redirect()->route('detail_survei')->with('success', 'Survei Anda Berhasil Ditambahkan!');
@@ -141,7 +153,7 @@ class SurveiController extends Controller
 
     public function store2(Request $request)
     {
-        
+
     }
 
     public function validasi_setuju(Request $request, $id_survei)
@@ -262,13 +274,35 @@ class SurveiController extends Controller
         return redirect()->route('verifikasi')->with('success', 'Pembayaran Anda Berhasil Disimpan.');
     }
 
+//     public function store_pembayaran(Request $request)
+// {
+//     $request->validate([
+//         'bukti' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//     ]);
+
+//     $survei = Survei::find($request->id_survei);
+
+//     if (!$survei) {
+//         return redirect()->back()->with('error', 'Survey not found.');
+//     }
+
+//     $buktiPath = $request->file('bukti')->storeAs('public/bukti_pembayaran', $survei->id . '.' . $request->file('bukti')->extension());
+
+//     $survei->update([
+//         'bukti' => Storage::url($buktiPath),
+//         'status' => 'Sudah Bayar',
+//     ]);
+
+//     return redirect()->route('verifikasi')->with('success', 'Pembayaran Anda Berhasil Disimpan.');
+// }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_survei)
+    public function show_detail($id_survei)
     {
         // $survey = Survey::find($id_klien); // Mengambil data survei berdasarkan ID
         // return view('', compact('survey'));

@@ -18,7 +18,7 @@ class CreateSurveiTable extends Migration
             $table->unsignedInteger('id_klien');
             // $table->unsignedInteger('id_admin');
             $table->unsignedInteger('jumlah_responden')->nullable();
-            $table->unsignedInteger('poin')->nullable();
+            $table->unsignedInteger('poin');
             $table->string('bukti')->nullable();
             $table->unsignedInteger('nominal')->nullable();
             $table->string('judul', 256)->nullable();

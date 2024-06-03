@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('klien.sidebar.buatsurvei')
+    @extends('klien.sidebar.detail_survei')
 @endsection
 @section('content')
     <div id="main">
@@ -244,7 +244,7 @@
 
         <div id="sections-container">
             <section class="section">
-                @foreach ($pertanyaan as $pertanyaan)
+                @foreach ($pertanyaan as $index => $pertanyaanItem)
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -253,88 +253,96 @@
                                         <label for="exampleFormControlTextarea1"
                                             class="form-label"><strong>Pertanyaan</strong></label>
                                         <p type="text">
-                                            {{ $pertanyaan->pertanyaan }}
+                                            {{ $pertanyaanItem->pertanyaan }}
                                         </p>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                             id="flexRadioDisabled" disabled>
                                         <label class="form-check-label" for="flexRadioDisabled">
-                                            {{ $pertanyaan->opsi_1 }}
+                                            {{ $pertanyaanItem->opsi_1 }}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                             id="flexRadioDisabled" disabled>
                                         <label class="form-check-label" for="flexRadioDisabled">
-                                            {{ $pertanyaan->opsi_2 }}
+                                            {{ $pertanyaanItem->opsi_2 }}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                             id="flexRadioDisabled" disabled>
                                         <label class="form-check-label" for="flexRadioDisabled">
-                                            {{ $pertanyaan->opsi_3 }}
+                                            {{ $pertanyaanItem->opsi_3 }}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                             id="flexRadioDisabled" disabled>
                                         <label class="form-check-label" for="flexRadioDisabled">
-                                            {{ $pertanyaan->opsi_4 }}
+                                            {{ $pertanyaanItem->opsi_4 }}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDisabled"
                                             id="flexRadioDisabled" disabled>
                                         <label class="form-check-label" for="flexRadioDisabled">
-                                            {{ $pertanyaan->opsi_5 }}
+                                            {{ $pertanyaanItem->opsi_5 }}
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         {{-- <div class="card-header">
                                             <h4>{{ $pertanyaan->pertanyaan }}</h4>
                                         </div> --}}
-                                        <div id="myChart" style="width:100%; max-width:600px; height:350px;">
+                                        <div id="myChart{{ $index }}" style="width:100%; max-width:600px; height:350px;">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                
             </section>
-
+            <script>
+                google.charts.load('current', {
+                    'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(function() {
+                    drawChart(
+                        '{{ $pertanyaanItem->opsi_1 }}',
+                        '{{ $pertanyaanItem->opsi_2 }}',
+                        '{{ $pertanyaanItem->opsi_3 }}',
+                        '{{ $pertanyaanItem->opsi_4 }}',
+                        '{{ $pertanyaanItem->opsi_5 }}',
+                        'myChart{{ $index }}'    
+                    );
+                });
+        
+                function drawChart(opsi_1, opsi_2, opsi_3, opsi_4, opsi_5, chartId) {
+        
+                    // Set Data
+                    const data = google.visualization.arrayToDataTable([
+                        ['Country', 'Mhl'],
+                        [opsi_1, 54],
+                        [opsi_2, 30],
+                        [opsi_3, 10],
+                        [opsi_4, 9],
+                        [opsi_5, 3],
+                        
+                    ]);
+        
+                    // Set Options
+                    const options = {};
+        
+        
+                    // Draw
+                    const chart = new google.visualization.PieChart(document.getElementById(chartId));
+                    chart.draw(data, options);
+                }
+            </script>
+            @endforeach
         </div>
-
-    <!-- pie chart -->
-    <script>
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            // Set Data
-            const data = google.visualization.arrayToDataTable([
-                ['Country', 'Mhl'],
-                ['{{ $pertanyaan->opsi_1 }}', 54],
-                ['{{ $pertanyaan->opsi_2 }}', 48],
-                ['{{ $pertanyaan->opsi_3 }}', 44],
-                ['{{ $pertanyaan->opsi_4 }}', 23],
-                ['{{ $pertanyaan->opsi_5 }}', 14]
-            ]);
-
-            // Set Options
-            const options = {};
-
-
-            // Draw
-            const chart = new google.visualization.PieChart(document.getElementById('myChart'));
-            chart.draw(data, options);
-        }
-    </script>
 
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">

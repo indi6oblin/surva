@@ -44,6 +44,7 @@
                                     <th>Nama Survei</th>
                                     <th>Harga</th>
                                     <th style="max-width: 160px;">Rincian</th>
+                                    <th style="max-width: 160px;">Alasan Validasi</th>
                                     <th style="max-width: 160px;">Bukti</th>
                                     <th>Status</th>
                                 </tr>
@@ -56,9 +57,8 @@
                                     <td>{{ $survei->judul }}</td>
                                     <td>{{ $survei->nominal }}</td>
                                     <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->rincian_harga }}</td>
-                                    <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">
-                                        {{ $survei->bukti }}
-                                    </td>
+                                    <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->deskripsi_validasi }}</td>
+                                    <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->bukti }}</td>
                                     <td>
                                         @php
                                             $status = $survei->status;

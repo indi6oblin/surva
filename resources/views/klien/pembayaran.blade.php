@@ -197,12 +197,6 @@
                                     <img src="{{ asset('images/scanqrr.jpeg')}}" alt="photo" width="300" height="300" style="display: inline-block; vertical-align: middle;">
                                     </div>
                                 </div>
-                                
-                                {{-- <div class="form-group mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        rows="3"></textarea>
-                                </div> --}}
                             </div>
                             <br>
                             <br>
@@ -223,6 +217,7 @@
                     // Memeriksa apakah pengguna menyetujui atau membatalkan
                     if (konfirmasi) {
                         // Jika disetujui, kirim formulir
+                        alert('Bukti pembayaran Anda telah terkirim.');
                         document.getElementById('buktiForm').submit();
                     } else {
                         // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('admin.sidebar.dashboard_admin')
+    @extends('admin.sidebar.sortir_admin')
 @endsection
 @section('content')
     <div id="main">

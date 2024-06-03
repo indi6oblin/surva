@@ -65,7 +65,7 @@ Route::post('/simpan_datadiri/{id_klien}', [App\Http\Controllers\KlienController
 Route::post('/simpan_password/{id_klien}', [App\Http\Controllers\KlienController::class, 'updatePassword'])->name('simpan_password');
 
 Route::get('/detail_survei', [App\Http\Controllers\SurveiController::class, 'index'])->name('detail_survei');
-Route::get('/detail_survei/{id_survei}', [App\Http\Controllers\SurveiController::class, 'show'])->name('detail_survei2');
+Route::get('/detail_survei/{id_survei}', [App\Http\Controllers\SurveiController::class, 'show_detail'])->name('detail_survei2');
 
 Route::get('/pembayaran', [App\Http\Controllers\SurveiController::class, 'index_pembayaran'])->name('daftar_pembayaran');
 Route::get('/pembayaran/{id_survei}', [App\Http\Controllers\KlienController::class, 'pembayaran'])->name('pembayaran');
@@ -89,6 +89,11 @@ Route::get('/disetujui', [App\Http\Controllers\AdminController::class, 'disetuju
 Route::get('/detail_disetujui/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_disetujui'])->name('detail_disetujui');
 Route::get('/dibatalkan', [App\Http\Controllers\AdminController::class, 'dibatalkan'])->name('dibatalkan');
 Route::get('/detail_dibatalkan/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_dibatalkan'])->name('detail_dibatalkan');
+
+Route::get('/kelola_klien', [App\Http\Controllers\AdminController::class, 'kelola_klien'])->name('kelola_klien');
+Route::delete('/hapus_klien/{id_klien}', [App\Http\Controllers\AdminController::class, 'hapus_klien'])->name('hapus_klien');
+Route::get('/kelola_responden', [App\Http\Controllers\AdminController::class, 'kelola_responden'])->name('kelola_responden');
+Route::delete('/hapus_responden/{id_responden}', [App\Http\Controllers\AdminController::class, 'hapus_responden'])->name('hapus_responden');
 
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('/logoutadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'logout'])->name('logout_admin');

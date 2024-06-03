@@ -18,7 +18,7 @@
                 #fixedCard {
                     position: fixed;
                     bottom: 0;
-                    width: 76%;
+                    width: 79%;
                     max-height: 300px; /* Sesuaikan dengan keinginan Anda */
                     overflow-y: auto;
                     background-color: #ffffff;
@@ -145,7 +145,7 @@
                                                     <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                                 </div>
                                             </div>
-                                            <input type="text" class="form-control" id="opsi_3" placeholder="Opsi 3" name="opsi_3[]" required>
+                                            <input type="text" class="form-control" id="opsi_3" placeholder="Opsi 3" name="opsi_3[]">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -155,7 +155,7 @@
                                                     <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                                 </div>
                                             </div>
-                                            <input type="text" class="form-control" id="opsi_4" placeholder="Opsi 4" name="opsi_4[]" required>
+                                            <input type="text" class="form-control" id="opsi_4" placeholder="Opsi 4" name="opsi_4[]">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -165,7 +165,7 @@
                                                     <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                                 </div>
                                             </div>
-                                            <input type="text" class="form-control" id="opsi_5" placeholder="Opsi 5" name="opsi_5[]" required>
+                                            <input type="text" class="form-control" id="opsi_5" placeholder="Opsi 5" name="opsi_5[]">
                                         </div>
                                     </div>
                                 </div>
@@ -177,21 +177,14 @@
                 <button type="button" class="btn btn-success" onclick="addSection()">Tambah Pertanyaan</button>
                 <button type="button" class="btn btn-danger" onclick="removeSection()">Hapus Pertanyaan</button>
 
-                {{-- <div id="fixedCard" class="card">
+                <div id="fixedCard" class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Harga Survei: <span id="totalHarga">5000</span></h4>
+                        <h4 class="card-title">Harga Survei: <span id="totalHarga">0</span></h4>
                         <button type="submit" class="btn btn-primary float-right" onclick="submitForm(e)">Kirim Survei</button>
                     </div>
-                    @if(session('message'))
-                        <div class="alert alert-success">
-                            {{ session('message') }}
-                        </div>
-                    @endif
-
-                </div> --}}
-                <button type="submit" class="btn btn-primary float-right" onclick="submitForm(e)">Kirim Survei</button>
+                </div>
             </div>
-            
+
             <br>
             <br>
             <footer>
@@ -209,12 +202,10 @@
     <script>
         var sectionCounter = 1;
         var pertanyaanArray = [];
-        var totalHarga = 0;
 
         function addSection() {
             // Clone the first section
             var newSection = $("#sections-container .section:first").clone();
-            var hargaPertanyaan = 5000;
 
             // Clear input values and textarea content in the cloned section
             newSection.find("input, textarea").val('');
@@ -253,21 +244,11 @@
             // Add the collected data to an array
             pertanyaanArray.push(sectionData);
 
-            // Menambah harga pertanyaan ke daftar
-            pertanyaanArray.push({ harga: hargaPertanyaan });
-
-            // Menambahkan harga ke totalHarga
-            totalHarga += hargaPertanyaan;
-
-            // Memperbarui tampilan totalHarga
-            updateTotalHarga();
-
         }
 
         function removeSection() {
         // Ensure that there is at least one section
         if (sectionCounter > 1) {
-            totalHarga -= pertanyaanArray[pertanyaanArray.length - 1].harga;
             // Remove the last section
             $("#sections-container .section:last").remove();
 
@@ -276,7 +257,6 @@
 
             // Remove the corresponding data from the array
             pertanyaanArray.pop();
-            updateTotalHarga();
         }
     }
      
@@ -321,11 +301,6 @@
             // Loop through each section and submit the data
             
         }
-
-        function updateTotalHarga() {
-    // Memperbarui tampilan totalHarga
-    document.getElementById('totalHarga').innerText = totalHarga;
-}
 
     </script>
 </body>

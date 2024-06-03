@@ -12,7 +12,7 @@
         <div class="page-heading">
             <section class="row">
                 <div class="col-lg-9" style="height: 100px;">
-                    <h3>Selamat Datang</h3>
+                    <h3>Selamat Datang, {{ auth('admin')->user()->username }}</h3>
                 </div>
                 <div class="col-3 col-lg-3" style="height: 100px;">
                     <div class="card" data-bs-toggle="modal" data-bs-target="#default">

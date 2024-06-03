@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('admin.sidebar.dashboard_admin')
+    @extends('admin.sidebar.sudah_bayar')
 @endsection
 @section('content')
     <div id="main">
@@ -258,7 +258,9 @@
                                 <div class="modal-body">
                                     <div>
                                         <label class="form-check-label">
-                                            Bukti pembayaran belum tersedia
+                                            {{-- Bukti pembayaran belum tersedia --}}
+                                            <img src="http://example.com/uploads/bukti_pembayaran.jpg" alt="Bukti Pembayaran">
+
                                         </label>
                                     </div>
                                 </div>
@@ -406,11 +408,12 @@
         
                 // Memeriksa apakah pengguna menyetujui atau membatalkan
                 if (konfirmasi) {
+                    alert('Anda telah menolak bukti pembayaran.');
                     // Jika disetujui, kirim formulir
                     document.getElementById('unpaidForm').submit();
                 } else {
                     // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
-                    alert('Anda telah menolak bukti pembayaran.');
+                    alert('Anda telah membatalkan penolakan bukti pembayaran.');
                     // Hindari pengiriman formulir dengan menghentikan peristiwa default
                     event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
                 }

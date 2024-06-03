@@ -13,7 +13,7 @@
         <div class="page-heading">
             <section class="row">
                 <div class="col-12 col-lg-9">
-                    <h3>Selamat Datang</h3>
+                    <h3>Selamat Datang, {{ auth()->user()->nama }}</h3>
                 </div>
                 <div class="col-12 col-lg-3 mr-auto">
                     <div class="card" data-bs-toggle="modal" data-bs-target="#default">

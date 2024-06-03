@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('admin.sidebar.dashboard_admin')
+    @extends('admin.sidebar.sortir_admin')
 @endsection
 @section('content')
     <div id="main">
@@ -231,6 +231,22 @@
                                 <p><small class="text-muted"></small>
                                 </p>
                             </div>
+                            <div class="form-group col-6">
+                                <label for="helperText"><strong>Target Hari : </strong></label>
+                                <p type="text">
+                                    {{ $survei->tgl_mulai }}
+                                </p>
+                                <p><small class="text-muted"></small>
+                                </p>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="helperText"><strong>Jumlah Pertanyaan : </strong></label>
+                                <p type="text">
+                                    {{ $survei->tgl_selesai }}
+                                </p>
+                                <p><small class="text-muted"></small>
+                                </p>
+                            </div>
                         </div>
 
                     </div>
@@ -449,6 +465,7 @@
     
             // Memeriksa apakah pengguna menyetujui atau membatalkan
             if (konfirmasi) {
+                alert('Survei telah disetujui.');
                 // Jika disetujui, kirim formulir
                 document.getElementById('setujuForm').submit();
             } else {
@@ -461,10 +478,11 @@
     
         function confirmTolak() {
             // Menampilkan konfirmasi
-            var konfirmasi = confirm('Apakah Anda yakin ingin menyetujui survei ini?');
+            var konfirmasi = confirm('Apakah Anda yakin ingin menolak survei ini?');
 
             // Memeriksa apakah pengguna menyetujui atau membatalkan
             if (konfirmasi) {
+                alert('Survei telah ditolak.');
                 // Jika disetujui, kirim formulir
                 document.getElementById('tolakForm').submit();
             } else {

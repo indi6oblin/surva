@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('admin.sidebar.dashboard_admin')
+    @extends('admin.sidebar.dibatalkan')
 @endsection
 @section('content')
     <div id="main">
@@ -48,10 +48,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $counter = 0;
+                                @endphp
                                 @foreach ( $survei as $key => $item)
                                 @if ($item->status == 'Ditolak')
                                 <tr>
-                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ ++$counter }}</td>
                                     <td>{{ $item->judul }}</td>
                                     <td>{{ $item->total_pertanyaan }}</td>
                                     <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $item->deskripsi_validasi }}</td>

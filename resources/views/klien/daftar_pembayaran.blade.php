@@ -177,6 +177,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $counter = 0;
+                                @endphp
                                 @foreach ( $kliensurvei as $key => $survei)
                                 @if ($survei->status == 'Belum Bayar')
                                 {{-- <tr>
@@ -189,7 +192,7 @@
                                     </td>
                                 </tr> --}}
                                 <tr>
-                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ ++$counter }}</td>
                                     <td>{{ $survei->judul }}</td>
                                     <td>{{ $survei->nominal }}</td>
                                     <td style="max-width: 160px; overflow: hidden; text-overflow: ellipsis;">{{ $survei->rincian_harga }}</td>

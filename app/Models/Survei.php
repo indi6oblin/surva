@@ -27,4 +27,10 @@ class Survei extends Model
     {
     return $this->hasMany(Pertanyaan::class, 'id_survei'); 
     }
+
+    public function survei_terjawab()
+    {
+    return $this->hasMany(Survei_terjawab::class, 'id_survei'); 
+    }
+
 }

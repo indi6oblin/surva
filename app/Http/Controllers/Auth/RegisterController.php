@@ -76,7 +76,7 @@ class RegisterController extends Controller
                             'min:8',
                             'confirmed',
                             'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
-                            'regex:/^[^\W_]+$/',
+                            // 'regex:/^[^\W_]+$/',
                         ],
             'password_confirmation' => 'required',
         ], [

@@ -12,7 +12,7 @@ class Hasil_survei extends Model
     protected $primaryKey = 'id_hasil';
 
 
-    protected $fllable = array(
+    protected $fillable = array(
         'id_hasil', 'id_pertanyaan', 'id_responden', 'hasil_opsi',
     );
 

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-    @extends('admin.sidebar.dashboard_admin')
+    @extends('admin.sidebar.sudah_bayar')
 @endsection
 @section('content')
     <div id="main">
@@ -48,10 +48,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $counter = 0;
+                                @endphp
                                 @foreach ( $survei as $key => $item)
                                 @if (in_array($item->status, ['Belum Bayar','Sudah Bayar']))
                                 <tr>
-                                    <td>{{ $key+1 }}</td>
+                                    <td>{{ ++$counter }}</td>
                                     <td>{{ $item->judul }}</td>
                                     <td>{{ $item->total_pertanyaan }}</td>
                                     <td>{{ $item->poin }}</td>
@@ -86,10 +89,12 @@
 
                                         <span class="badge {{ $badgeColor }}">{{ $status }}</span>
                                     </td>
-                                    <td>
+                                    <td> 
+                                        @if ($item->status == 'Sudah Bayar')
                                         <a href="{{ route('detail_sudah_bayar', ['id_survei' => $item->id_survei]) }}">
                                             <span class="badge" style="background-color: #D99004;">Validasi</span>
                                         </a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endif

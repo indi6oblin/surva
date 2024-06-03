@@ -188,7 +188,7 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between">
                             <span></span>
-                            <button type="submit" class="btn btn-light-primary" onclick="showConfirmation()">Simpan Data Diri</button>
+                            <button type="submit" class="btn btn-light-primary" onclick="profilConfirm()">Simpan Data Diri</button>
                         </div>
                         </form>
 
@@ -196,7 +196,7 @@
                 </section>
 
 
-                <form action="{{ route('simpan_survei') }}" method="post">
+                <form action="{{ route('simpan_survei') }}" method="post" id="editForm">
                     @csrf
                 <section class="section">
                     <div class="card">
@@ -230,6 +230,24 @@
                 </section>
 
             </div>
+            <script>
+                function profilConfirm() {
+                    // Menampilkan konfirmasi
+                    var konfirmasi = confirm('Apakah Anda yakin ingin menyimpan perubahan data diri?');
+
+                    // Memeriksa apakah pengguna menyetujui atau membatalkan
+                    if (konfirmasi) {
+                        // Jika disetujui, kirim formulir
+                        alert('Data diri Anda berhasil diperbarui.');
+                        document.getElementById('hapusForm').submit();
+                    } else {
+                        // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
+                        alert('Pembaruan data diri Anda dibatalkan.');
+                        // Hindari pengiriman formulir dengan menghentikan peristiwa default
+                        event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
+                    }
+                }
+            </script>
 
             {{-- <input type="hidden" name="pertanyaanArray" id="pertanyaanArrayInput" value=""> --}}
             <div class="col-md-12 text-center">
@@ -244,16 +262,4 @@
     </div>
     </form>
     {{-- END FORM --}}
-
-    <script>
-        function showConfirmation() {
-            // Display a confirmation dialog
-            var isConfirmed = window.confirm("Apakah Anda yakin ingin menyimpan perubahan data diri?");
-    
-            // If the user clicks "OK", submit the form
-            if (isConfirmed) {
-                document.getElementById('editProfilForm').submit();
-            }
-        }
-    </script>
 @endsection

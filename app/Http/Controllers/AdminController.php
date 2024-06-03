@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\Admin;
 use App\Models\Klien;
 use App\Models\Responden;
@@ -106,6 +107,50 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function kelola_klien()
+    {
+        $klien_count = Klien::count();
+        $klien = Klien::all();
+
+        foreach ($klien as $item) {
+            $item->jumlah_survei = Survei::where('id_klien', $item->id_klien)->count();
+        }
+
+        return view('admin.klien', compact('klien','klien_count'));
+    }
+
+    public function hapus_klien(Request $request, $id_klien)
+    {
+        $klien = Klien::find($id_klien);
+        if ($klien) {
+            $klien->delete();
+
+            return Redirect::back()->with('success', 'Klien berhasil dihapus');
+        } else {
+            return Redirect::back()->with('error', 'Klien tidak ditemukan');
+        }
+    }
+
+    public function kelola_responden()
+    {
+        $responden_count = Responden::count();
+        $responden = Responden::all();
+
+        return view('admin.responden', compact('responden','responden_count'));
+    }
+
+    public function hapus_responden(Request $request, $id_responden)
+    {
+        $responden = Responden::find($id_responden);
+        if ($responden) {
+            $responden->delete();
+
+            return Redirect::back()->with('success', 'Responden berhasil dihapus');
+        } else {
+            return Redirect::back()->with('error', 'Responden tidak ditemukan');
+        }
     }
 
     public function sortir_admin()
