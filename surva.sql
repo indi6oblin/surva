@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 27, 2024 at 02:28 AM
+-- Generation Time: Jun 03, 2024 at 04:49 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -39,7 +39,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `email`, `password`) VALUES
-(1, 'admin', 'admin@example.com', '$2y$10$Rp8ZC649D.2eLcsH/QJhkO1.8JBzVXImirZFcyUvvar7Pfct6HBHC');
+(1, 'admin', 'admin@example.com', '$2y$10$JE5fMvNdlzGDD2FHMJKFpe7Bdy17zmiNNkR583bbmcWSHdQdoyHt6'),
+(2, 'admin1', 'admin1@example.com', '$2y$10$83BEiHiz/p1QYkvTNGy3Y.XsNosvUKMUzTB4dNrM3ywd/4WVboAii'),
+(3, 'absar', 'absar@gmail.com', '$2y$10$2WhtvA1xzWyJnjK1XHFheOpRa82UeoikEz6QqrqCQWKPIKjDCzNpK');
 
 -- --------------------------------------------------------
 
@@ -76,9 +78,8 @@ CREATE TABLE `klien` (
 --
 
 INSERT INTO `klien` (`id_klien`, `nama`, `username`, `email`, `password`, `remember_token`) VALUES
-(1, 'klien1', 'klien', 'klien@example.com', '$2y$10$39jCbOhn2BeGzQdrDU2TZuAPXbUWDw9cK2By7Es9v6uH3vJZ6JJ6G', NULL),
-(4, 'Ikan Kecil', 'ikan_kecik', 'ikankecikmakanpelet@gmail.com', '$2y$10$/cGHKFIh4u7.X7jWq0OKUuqdE/UzqTlVeo2cByW4CpsQlANGZFyRa', NULL),
-(5, 'Asem Sulfat', 'sam_sul', 'asemsulfatsamsul@gmail.com', '$2y$10$7akaR3v83gVL.kAADlDyvec7Bxrev43wdOh41ZyA9teyawNv/TZRe', NULL);
+(1, 'klien', 'klien', 'klien@example.com', '$2y$10$7N3Zaw4jUCfzSae0OH/s4O8DX9I4LDTZm3tcnfgZwcUmA8YrueE2u', NULL),
+(3, 'tyas', 'tyas', 'tyas@gmail.com', '$2y$10$.DOFObl1U9PlqEYojZBl4e.EV5rg30rJeBGEw09.weqLY3aGNR1Qu', NULL);
 
 -- --------------------------------------------------------
 
@@ -152,9 +153,17 @@ CREATE TABLE `pertanyaan` (
   `opsi_3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `opsi_4` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `opsi_5` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jawaban_essai` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pertanyaan`
+--
+
+INSERT INTO `pertanyaan` (`id_pertanyaan`, `id_survei`, `pertanyaan`, `opsi_1`, `opsi_2`, `opsi_3`, `opsi_4`, `opsi_5`, `jawaban_essai`, `created_at`, `updated_at`) VALUES
+(1, 6, 'Fungsi SQL mana yang digunakan untuk menghitung jumlah baris dalam tabel?', 'COUNT()', 'SUM()', 'TOTAL()', 'CACL()', 'TIDAK TAHU', NULL, '2024-05-30 07:46:35', '2024-05-30 07:46:35');
 
 -- --------------------------------------------------------
 
@@ -196,6 +205,14 @@ CREATE TABLE `survei` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `survei`
+--
+
+INSERT INTO `survei` (`id_survei`, `id_klien`, `jumlah_responden`, `poin`, `bukti`, `nominal`, `judul`, `deskripsi`, `deskripsi_validasi`, `rincian_harga`, `tgl_mulai`, `tgl_selesai`, `status`, `created_at`, `updated_at`) VALUES
+(6, 3, 100, 5, NULL, NULL, 'PEMOGRAMAN BASIS DATA', 'BASIS DATA MYSQL', NULL, NULL, '2024-05-30', '2024-06-08', 'Sortir', '2024-05-30 07:46:35', '2024-05-30 07:46:35'),
+(7, 3, 100, 5, NULL, NULL, 'PEMOGRAMAN BERBASIS OBJEK', 'PHP', NULL, NULL, '2024-05-30', '2024-06-08', 'Sortir', '2024-05-30 08:27:11', '2024-05-30 08:27:11');
 
 -- --------------------------------------------------------
 
@@ -297,7 +314,7 @@ ALTER TABLE `survei_terjawab`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hasil_survei`
@@ -309,7 +326,7 @@ ALTER TABLE `hasil_survei`
 -- AUTO_INCREMENT for table `klien`
 --
 ALTER TABLE `klien`
-  MODIFY `id_klien` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_klien` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -327,7 +344,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
-  MODIFY `id_pertanyaan` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pertanyaan` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `responden`
@@ -339,7 +356,7 @@ ALTER TABLE `responden`
 -- AUTO_INCREMENT for table `survei`
 --
 ALTER TABLE `survei`
-  MODIFY `id_survei` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_survei` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `survei_terjawab`
