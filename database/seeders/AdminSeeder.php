@@ -30,7 +30,7 @@ class AdminSeeder extends Seeder
                 'email' => 'absar@gmail.com',
             ],
             [
-                'password' => Hash::make('absar12345'),
+                'password' => Hash::make('Absar12345'),
             ]
         );
     }
