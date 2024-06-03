@@ -63,7 +63,7 @@ class AdminSeeder extends Seeder
         Admin::firstOrCreate(
             [
                 'username' => 'bowen',
-                'email' => 'tyas@gmail.com',
+                'email' => 'bowen@gmail.com',
             ],
             [
                 'password' => Hash::make('Bowen12345'),
