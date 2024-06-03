@@ -21,5 +21,11 @@ class KlienSeeder extends Seeder
             'email' => 'klien@example.com'],
             ['password' => Hash::make('klien1234')],
         );
+        Klien::firstOrCreate(
+            ['nama' => 'tyas wening',
+            'username' => 'tyas',
+            'email' => 'tyas@gmail.com'],
+            ['password' => Hash::make('Tyas12345')],
+        );
     }
 }
