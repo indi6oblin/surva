@@ -115,57 +115,72 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label for="question_type">Tipe Pertanyaan</label>
+                                        <select class="form-control" id="question_type" name="question_type[]" onchange="toggleQuestionType(this)">
+                                            <option value="multiple_choice">Pilihan Ganda</option>
+                                            <option value="essay">Essai</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="pertanyaan" class="form-label">Pertanyaan</label>
                                         <textarea class="form-control" id="pertanyaan" rows="3" name="tanya[]" required></textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                    <div class="multiple-choice-options">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                    </div>
                                                 </div>
+                                                <input type="text" class="form-control" id="opsi_1" placeholder="Opsi 1" name="opsi_1[]"> 
                                             </div>
-                                            <input type="text" class="form-control" id="opsi_1." placeholder="Opsi 1" name="opsi_1[]"> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="opsi_2" placeholder="Opsi 2" name="opsi_2[]">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="opsi_3" placeholder="Opsi 3" name="opsi_3[]">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="opsi_4" placeholder="Opsi 4" name="opsi_4[]">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="opsi_5" placeholder="Opsi 5" name="opsi_5[]">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_2" placeholder="Opsi 2" name="opsi_2[]">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_3" placeholder="Opsi 3" name="opsi_3[]" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_4" placeholder="Opsi 4" name="opsi_4[]" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" id="opsi_5" placeholder="Opsi 5" name="opsi_5[]" required>
+                                    <div class="essay-option" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="jawaban_essai" class="form-label">Jawaban Essai</label>
+                                            <textarea class="form-control" id="jawaban_essai" rows="3" name="jawaban_essai[]" disabled></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -174,9 +189,10 @@
                     </div>
                 </section>
                 </div>
+
                 <button type="button" class="btn btn-success" onclick="addSection()">Tambah Pertanyaan</button>
                 <button type="button" class="btn btn-danger" onclick="removeSection()">Hapus Pertanyaan</button>
-
+    
                 {{-- <div id="fixedCard" class="card">
                     <div class="card-body">
                         <h4 class="card-title">Harga Survei: <span id="totalHarga">5000</span></h4>
@@ -219,6 +235,9 @@
             // Clear input values and textarea content in the cloned section
             newSection.find("input, textarea").val('');
             newSection.find("input[type=radio]").prop('checked', false);
+            newSection.find("select").val('multiple_choice');
+            newSection.find(".essay-option").hide();
+            newSection.find(".multiple-choice-options").show();
 
             // Increment IDs and names to avoid duplicates
             newSection.find("*").each(function () {
@@ -242,12 +261,12 @@
 
             // Collect data from the new section
             var sectionData = {
-                pertanyaan: newSection.find("#tanya".$sectionCounter).val(),
-                opsi_1: newSection.find("#opsi_1".$sectionCounter).val(),
-                opsi_2: newSection.find("#opsi_2".$sectionCounter).val(),
-                opsi_3: newSection.find("#opsi_3".$sectionCounter).val(),
-                opsi_4: newSection.find("#opsi_4".$sectionCounter).val(),
-                opsi_5: newSection.find("#opsi_5".$sectionCounter).val(),
+                pertanyaan: newSection.find("#pertanyaan").val(),
+                opsi_1: newSection.find("#opsi_1").val(),
+                opsi_2: newSection.find("#opsi_2").val(),
+                opsi_3: newSection.find("#opsi_3").val(),
+                opsi_4: newSection.find("#opsi_4").val(),
+                opsi_5: newSection.find("#opsi_5").val(),
             };
 
             // Add the collected data to an array
@@ -261,7 +280,6 @@
 
             // Memperbarui tampilan totalHarga
             updateTotalHarga();
-
         }
 
         function removeSection() {
@@ -279,7 +297,24 @@
             updateTotalHarga();
         }
     }
-     
+
+        function toggleQuestionType(selectElement) {
+            var selectedValue = selectElement.value;
+            var parentSection = $(selectElement).closest('.section');
+            
+            if (selectedValue === 'essay') {
+                parentSection.find('.multiple-choice-options').hide();
+                parentSection.find('.essay-option').show();
+                parentSection.find('.essay-option textarea').prop('disabled', false);
+                parentSection.find('.multiple-choice-options input').prop('disabled', true);
+            } else {
+                parentSection.find('.multiple-choice-options').show();
+                parentSection.find('.essay-option').hide();
+                parentSection.find('.essay-option textarea').prop('disabled', true);
+                parentSection.find('.multiple-choice-options input').prop('disabled', false);
+            }
+        }
+
         function submitForm(e) {
             e.preventDefault();
             if ( confirm("Apakah Anda yakin ingin menyimpan survei?") ){

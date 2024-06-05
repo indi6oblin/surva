@@ -57,8 +57,9 @@
                     <li class="dropdown"><a href="#"><span>Autentikasi</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{ route('login') }}">Klien</a></li>
                             <li><a href="{{ route('login_admin') }}">Admin</a></li>
+                            <li><a href="{{ route('login') }}">Klien</a></li>
+                            <li><a href="{{ route('login_responden') }}">Responden</a></li>
                         </ul>
                     </li>
                 </ul>
