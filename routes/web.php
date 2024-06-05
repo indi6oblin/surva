@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginRespondenController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\FormController;
@@ -26,10 +27,6 @@ use App\Http\Controllers\AdminController;
 */
 
 
-
-
-
-
 // ----------------------------- home dashboard ------------------------------//
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 
@@ -41,9 +38,12 @@ Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'authen
 Route::get('/loginadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'login'])->name('login_admin');
 Route::post('/loginadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'authenticate']);
 
+Route::get('/login_responden',[LoginRespondenController::class, 'login_responden'])->name('login_responden');
+Route::post('/login_responden', [LoginRespondenController::class, 'login_respondenPost'])->name('login_responden_post');
+
 // ------------------------------ register ---------------------------------//
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
-Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'storeUser'])->name('register');
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'storeUser']);
 
 // ----------------------------- reset password -----------------------------//
 Route::get('reset-password/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'getPassword']);
@@ -95,9 +95,10 @@ Route::delete('/hapus_klien/{id_klien}', [App\Http\Controllers\AdminController::
 Route::get('/kelola_responden', [App\Http\Controllers\AdminController::class, 'kelola_responden'])->name('kelola_responden');
 Route::delete('/hapus_responden/{id_responden}', [App\Http\Controllers\AdminController::class, 'hapus_responden'])->name('hapus_responden');
 
+// Route for logging out
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('/logoutadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'logout'])->name('logout_admin');
-
+Route::post('/logout_responden', [LoginRespondenController::class, 'logout'])->name('logout_responden');
 
 
 // ----------------------------- user profile ------------------------------//
