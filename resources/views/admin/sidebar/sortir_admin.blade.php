@@ -60,6 +60,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="{{ route('kelola_responden') }}" class='sidebar-link'>
+                    <i class="bi bi-envelope"></i>
+                        <span>Paket pertanyaan</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
                             @if (auth()->user())

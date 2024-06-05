@@ -44,7 +44,7 @@
         <div class="container d-flex justify-content-between align-items-center">
 
             <div class="logo">
-                <h1><a href="index.html">APSIS</a></h1>
+                <h1><a href="index.html">SURVA</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -94,14 +94,14 @@
                             <h1 data-aos="fade-right">"Sempurnakan penelitian Anda dengan aplikasi survei kami."</h1>
                             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a
                                     href="{{ route('login') }}" class="btn btn-outline-white">Coba Gratis</a></p>
-                        </div>
+                        <!-- </div>
                         <div class="col-lg-4 iphone-wrap">
                             <img src="/landingPage/assets/img/home-responden.png" alt="Image" class="phone-1"
                                 data-aos="fade-right">
                             <img src="/landingPage/assets/img/login-responden.png" alt="Image" class="phone-2"
                                 data-aos="fade-right" data-aos-delay="200">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
