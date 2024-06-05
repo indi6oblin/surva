@@ -47,6 +47,7 @@
                                     </span>
                                 @enderror
                             </div>
+
                             {{-- <div class="form-group position-relative has-icon-left mb-4">
                                 <div class="d-flex flex-column">
                                     <span class="mb-2">Login sebagai:</span>
@@ -80,7 +81,7 @@
                             </div>
                             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-2" type="submit">Masuk</button>
                         </form>
-                        <div class="text-center mt-5 text-lg fs-5">
+                        <div class="text-center mt-3 text-lg fs-5">
                             <p class="text-gray-600">Belum Punya Akun <a href="{{ route('register') }}"
                                     class="font-bold">Daftar</a>.</p>
                             <p class="text-gray-600"><a href="{{ route('landing.index') }}"
