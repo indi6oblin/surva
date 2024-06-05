@@ -19,6 +19,7 @@ use App\Http\Controllers\SurveiApiController;
 Route::get('/survei/{respondenId}', [SurveiApiController::class, 'listSurvei']);
 Route::get('/survei', [SurveiApiController::class, 'survei']);
 Route::get('/hasil', [SurveiApiController::class, 'hasil']);
+
 // menampilkan pertanyaan api
 Route::get('/pertanyaan/{id_survei}', [SurveiApiController::class, 'pertanyaanBySurvei']);
 

@@ -44,7 +44,7 @@
         <div class="container d-flex justify-content-between align-items-center">
 
             <div class="logo">
-                <h1><a href="index.html">APSIS</a></h1>
+                <h1><a href="index.html">SURVA</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -57,8 +57,9 @@
                     <li class="dropdown"><a href="#"><span>Autentikasi</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{ route('login') }}">Klien</a></li>
                             <li><a href="{{ route('login_admin') }}">Admin</a></li>
+                            <li><a href="{{ route('login') }}">Klien</a></li>
+                            <li><a href="{{ route('login_responden') }}">Responden</a></li>
                         </ul>
                     </li>
                 </ul>

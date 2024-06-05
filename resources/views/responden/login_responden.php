@@ -13,7 +13,7 @@
                         </div>
                     @endif
                     <br>
-                    <p class="auth-subtitle mb-3">Masuk sebagai : <strong>Admin</strong></p>
+                    <p class="auth-subtitle mb-3">Masuk sebagai : <strong>Responden</strong></p>
                     {{-- @isset($route)
                         <form method="POST" action="{{ $route }}" class="md-float-material">
                         @else --}}
@@ -48,18 +48,11 @@
                             </div>
                             {{-- <div class="form-group position-relative has-icon-left mb-4">
                                 <div class="d-flex flex-column">
-                                <span class="mb-2">Login sebagai:</span>
+                                    <span class="mb-2">Login sebagai:</span>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="role" value="klien"
                                             id="flexRadioDefault1">
                                         <label class="form-check-label" for="flexRadioDefault1">
-                                            Admin
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="role" value="admin"
-                                            id="flexRadioDefault2" checked>
-                                        <label class="form-check-label" for="flexRadioDefault2">
                                             Klien
                                         </label>
                                     </div>
@@ -67,7 +60,7 @@
                                         <input class="form-check-input" type="radio" name="role" value="admin"
                                             id="flexRadioDefault2" checked>
                                         <label class="form-check-label" for="flexRadioDefault2">
-                                            Responden
+                                            Admin
                                         </label>
                                     </div>
                                 </div>

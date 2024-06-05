@@ -13,12 +13,8 @@
                         </div>
                     @endif
                     <br>
-                    <p class="auth-subtitle mb-3">Masuk sebagai : <strong>Admin</strong></p>
-                    {{-- @isset($route)
-                        <form method="POST" action="{{ $route }}" class="md-float-material">
-                        @else --}}
-                            <form method="POST" action="{{ route('login_admin') }}" class="md-float-material">
-                            {{-- @endisset --}}
+                    <p class="auth-subtitle mb-3">Masuk sebagai : <strong>Responden</strong></p>
+                            <form method="POST" action="{{ route('login_responden') }}" class="md-float-material">
                             @csrf
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text"
@@ -46,37 +42,6 @@
                                     </span>
                                 @enderror
                             </div>
-                            {{-- <div class="form-group position-relative has-icon-left mb-4">
-                                <div class="d-flex flex-column">
-                                <span class="mb-2">Login sebagai:</span>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="role" value="klien"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Admin
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="role" value="admin"
-                                            id="flexRadioDefault2" checked>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Klien
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="role" value="admin"
-                                            id="flexRadioDefault2" checked>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Responden
-                                        </label>
-                                    </div>
-                                </div>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div> --}}
                             <div class="form-check form-check-lg d-flex align-items-end">
                                 <input class="form-check-input me-2" type="checkbox" value="remember_me" id="remember_me"
                                     name="remember_me">
@@ -100,3 +65,4 @@
         </div>
     </div>
 @endsection
+
