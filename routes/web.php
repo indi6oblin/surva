@@ -95,7 +95,7 @@ Route::delete('/hapus_klien/{id_klien}', [App\Http\Controllers\AdminController::
 Route::get('/kelola_responden', [App\Http\Controllers\AdminController::class, 'kelola_responden'])->name('kelola_responden');
 Route::delete('/hapus_responden/{id_responden}', [App\Http\Controllers\AdminController::class, 'hapus_responden'])->name('hapus_responden');
 
-// Route for logging out
+// Route for logging out 
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('/logoutadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'logout'])->name('logout_admin');
 Route::post('/logout_responden', [LoginRespondenController::class, 'logout'])->name('logout_responden');
