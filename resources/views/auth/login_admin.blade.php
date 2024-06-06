@@ -86,7 +86,7 @@
                             </div>
                             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-2" type="submit">Masuk</button>
                         </form>
-                        <div class="text-center mt-5 text-lg fs-5">
+                        <div class="text-center mt-3 text-lg fs-5">
                             <p class="text-gray-600"><a href="{{ route('landing.index') }}"
                                         class="font-bold"><i class="bi bi-house"></i>  Kembali ke Beranda</a>.</p>
                         </div>

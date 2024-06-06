@@ -47,6 +47,34 @@
                                     </span>
                                 @enderror
                             </div>
+<<<<<<< HEAD
+
+                            {{-- <div class="form-group position-relative has-icon-left mb-4">
+                                <div class="d-flex flex-column">
+                                    <span class="mb-2">Login sebagai:</span>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="role" value="klien"
+                                            id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Klien
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="role" value="admin"
+                                            id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Admin
+                                        </label>
+                                    </div>
+                                </div>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div> --}}
+=======
+>>>>>>> 6786e92d01ce857d10161ca923cf0577bf7cf5bb
                             <div class="form-check form-check-lg d-flex align-items-end">
                                 <input class="form-check-input me-2" type="checkbox" value="remember_me" id="remember_me"
                                     name="remember_me">
@@ -56,7 +84,7 @@
                             </div>
                             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-2" type="submit">Masuk</button>
                         </form>
-                        <div class="text-center mt-5 text-lg fs-5">
+                        <div class="text-center mt-3 text-lg fs-5">
                             <p class="text-gray-600">Belum Punya Akun <a href="{{ route('register') }}"
                                     class="font-bold">Daftar</a>.</p>
                             <p class="text-gray-600"><a href="{{ route('landing.index') }}"
