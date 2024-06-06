@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use App\Providers\RouteServiceProvider;
 
 class LoginRespondenController extends Controller
 {
@@ -34,7 +34,7 @@ class LoginRespondenController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function showLoginForm()
+    public function showLoginResponden()
     {
         return view('auth.login_responden');
     }
@@ -45,7 +45,7 @@ class LoginRespondenController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function login(Request $request)
+    public function login_responden(Request $request)
     {
         // Validate the login request
         $credentials = $request->validate([
@@ -62,7 +62,7 @@ class LoginRespondenController extends Controller
         // Attempt to log in the respondent
         if (Auth::attempt($credentials)) {
             Toastr::success('Autentikasi Berhasil :)', 'Sukses!');
-            return redirect()->intended('/dashboard_responden');
+            return redirect()->intended('dashboard_responden');
         }
 
         Toastr::error('Gagal, Username atau Password Salah :)', 'Error');

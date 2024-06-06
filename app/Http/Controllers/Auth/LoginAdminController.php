@@ -42,7 +42,7 @@ class LoginAdminController extends Controller
         ]);
     }
 
-    public function login()
+    public function login_admin()
     {
 
         return view('auth.login_admin');
