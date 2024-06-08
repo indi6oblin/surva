@@ -47,7 +47,6 @@
                                     </span>
                                 @enderror
                             </div>
-<<<<<<< HEAD
 
                             {{-- <div class="form-group position-relative has-icon-left mb-4">
                                 <div class="d-flex flex-column">
@@ -73,8 +72,7 @@
                                     </span>
                                 @enderror
                             </div> --}}
-=======
->>>>>>> 6786e92d01ce857d10161ca923cf0577bf7cf5bb
+
                             <div class="form-check form-check-lg d-flex align-items-end">
                                 <input class="form-check-input me-2" type="checkbox" value="remember_me" id="remember_me"
                                     name="remember_me">
