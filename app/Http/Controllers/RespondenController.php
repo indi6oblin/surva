@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use App\Models\Survei;
-use App\Models\Responden;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Responden;
+use App\Models\Survei;
+use DB;
 use Illuminate\Support\Facades\Hash;
 
 class RespondenController extends Controller
@@ -17,12 +17,14 @@ class RespondenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $Responden = Responden::all();
-        $Respondensurvei = Auth::user()->survei;
+{
+    $Responden = Responden::all();
+    $respondensurvei = Auth::user()->survei;
+    // Logic to retrieve survey data for the client
+    $kliensurvei = Survei::all(); // Example: Fetch all surveys
 
-        return view('responden.home', ['responden' => $Responden], compact('respondensurvei'));
-    }
+    return view('responden.home', compact('Responden', 'respondensurvei', 'kliensurvei'));
+}
 
     /**
      * Show the form for creating a new resource.
