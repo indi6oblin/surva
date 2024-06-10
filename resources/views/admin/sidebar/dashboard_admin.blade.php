@@ -60,7 +60,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ route('kelola_responden') }}" class='sidebar-link'>
+                    <a href="{{ route('paket_pertanyaan') }}" class='sidebar-link'>
                         <i class="bi bi-envelope"></i>
                         <span>Paket pertanyaan</span>
                     </a>
