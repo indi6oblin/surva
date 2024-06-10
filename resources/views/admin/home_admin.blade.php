@@ -11,17 +11,17 @@
         </header>
         <div class="page-heading">
             <section class="row">
-                <div class="col-lg-9" style="height: 100px;">
+                <div class="col-lg-8" style="height: 100px;">
                     <h3>Selamat Datang, {{ auth('admin')->user()->username }}</h3>
                 </div>
-                <div class="col-3 col-lg-3" style="height: 100px;">
+                <div class="col-5 col-lg-4" style="height: 100px;">
                     <div class="card" data-bs-toggle="modal" data-bs-target="#default">
                         <div class="card-body py-4 px-4">
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <img src="{{ URL::to('/') }}/images/photo_defaults.jpg" alt="photo">
                                 </div>
-                                <div class="ms-3 name">
+                                <div class="ms-4 name">
                                     <h5 class="font-bold">
                                         @if (auth()->user())
                                             {{ auth()->user()->nama }}
@@ -48,7 +48,7 @@
                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel1">User Profile</h5>
+                                        <h5 class="modal-title" id="myModalLabel1">Profil Admin</h5>
                                         <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
                                             aria-label="Close">
                                             <i data-feather="x"></i>
@@ -75,7 +75,7 @@
                                                     </div>
                                                 @else(auth()->user())
                                                     <div class="col-md-4">
-                                                        <label>Username</label>
+                                                        <label>Nama Admin</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="form-group has-icon-left">
@@ -90,7 +90,7 @@
                                                     </div>
                                                 @endif
                                                 <div class="col-md-4">
-                                                    <label>Email Address</label>
+                                                    <label>Alamat Email</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group has-icon-left">
@@ -106,7 +106,7 @@
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    <label>Login Sebagai</label>
+                                                    <label>Masuk Sebagai</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group has-icon-left">
@@ -125,7 +125,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
                                             <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Close</span>
+                                            <span class="d-none d-sm-block">Tutup</span>
                                         </button>
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-8">
-                                            <h6 class="text-muted font-semibold">Responden Total</h6>
+                                            <h6 class="text-muted font-semibold">Total Responden</h6>
                                             <h6 class="font-extrabold mb-0">
                                                 {{ $responden }}
                                             </h6>
@@ -174,7 +174,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Klien Total</h6>
+                                                <h6 class="text-muted font-semibold">Total Klien</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     {{ $klien }}
                                                 </h6>
@@ -195,7 +195,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-8">
-                                            <h6 class="text-muted font-semibold">Survei Total</h6>
+                                            <h6 class="text-muted font-semibold">Total Survei</h6>
                                             <h6 class="font-extrabold mb-0">
                                                 {{ $survei_count }}
                                             </h6>
