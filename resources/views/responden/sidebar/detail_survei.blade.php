@@ -64,20 +64,12 @@
                             @endif
                             <hr>
                             <span>Sebagai:</span>
-                            <span class="badge bg-success">Klien</span>
-                            
+                            <span class="badge bg-success">Responden</span>
+
                         </div>
                     </div>
                 </li>
-
-                {{-- <li class="sidebar-item">
-                    <a href="{{ route('change/password') }}" class='sidebar-link'>
-                        <i class="bi bi-shield-lock"></i>
-                        <span>Change Password</span>
-                    </a>
-                </li> --}}
-
-                    <li class="sidebar-item  has-sub visually-hidden"> 
+                    <li class="sidebar-item  has-sub visually-hidden">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
                             <span>Halaman Pengguna</span>
@@ -88,7 +80,6 @@
                             </li>
                         </ul>
                     </li>
-
                 <li class="sidebar-item">
                     <a href="{{ route('logout') }}" class='sidebar-link' onclick="confirmSubmission()">
                         <i class="bi bi-box-arrow-right"></i>

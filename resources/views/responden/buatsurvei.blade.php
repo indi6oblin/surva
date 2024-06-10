@@ -14,7 +14,7 @@
                 body {
                     padding-bottom: 100px; /* Menyisipkan padding pada bagian bawah body sesuai dengan tinggi card */
                 }
-        
+
                 #fixedCard {
                     position: fixed;
                     bottom: 0;
@@ -68,7 +68,7 @@
                         <div class="card-header">
                             <h4 class="card-title">Judul dan Deskripsi</h4>
                         </div>
-                        
+
                         <div class="card-body">
                             <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
                             <div class="row">
@@ -133,7 +133,7 @@
                                                         <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control" id="opsi_1" placeholder="Opsi 1" name="opsi_1[]"> 
+                                                <input type="text" class="form-control" id="opsi_1" placeholder="Opsi 1" name="opsi_1[]">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -192,22 +192,9 @@
 
                 <button type="button" class="btn btn-success" onclick="addSection()">Tambah Pertanyaan</button>
                 <button type="button" class="btn btn-danger" onclick="removeSection()">Hapus Pertanyaan</button>
-    
-                {{-- <div id="fixedCard" class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Harga Survei: <span id="totalHarga">5000</span></h4>
-                        <button type="submit" class="btn btn-primary float-right" onclick="submitForm(e)">Kirim Survei</button>
-                    </div>
-                    @if(session('message'))
-                        <div class="alert alert-success">
-                            {{ session('message') }}
-                        </div>
-                    @endif
-
-                </div> --}}
                 <button type="submit" class="btn btn-primary float-right" onclick="submitForm(e)">Kirim Survei</button>
             </div>
-            
+
             <br>
             <br>
             <footer>
@@ -219,7 +206,7 @@
             </footer>
         </form>
     </div>
-    
+
     {{-- END FORM --}}
 
     <script>
@@ -301,7 +288,7 @@
         function toggleQuestionType(selectElement) {
             var selectedValue = selectElement.value;
             var parentSection = $(selectElement).closest('.section');
-            
+
             if (selectedValue === 'essay') {
                 parentSection.find('.multiple-choice-options').hide();
                 parentSection.find('.essay-option').show();
@@ -350,11 +337,11 @@
                 }
             });
 
-            } else { 
+            } else {
                 return false;
             }
             // Loop through each section and submit the data
-            
+
         }
 
         function updateTotalHarga() {
