@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" name="csrf-token" content="{{ csrf_token() }}">
     <link href="landingPage/assets/img/logoapp.png" rel="icon">
     <link href="landingPage/assets/img/logoapp.png" rel="apple-touch-icon">
-    <title>APSIS</title>
+    <title>SURVA</title>
     <link rel="shortcut icon" href="{{ URL::to('assets/images/favicon.png') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -71,7 +71,7 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    
+
 
 
 

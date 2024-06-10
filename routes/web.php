@@ -35,11 +35,11 @@ Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'authenticate']);
 
-Route::get('/loginadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'login'])->name('login_admin');
+Route::get('/loginadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'login_admin'])->name('login_admin');
 Route::post('/loginadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'authenticate']);
 
-Route::get('/login_responden',[LoginRespondenController::class, 'login_responden'])->name('login_responden');
-Route::post('/login_responden', [LoginRespondenController::class, 'login_respondenPost'])->name('login_responden_post');
+Route::get('/login_responden',[LoginRespondenController::class, 'showLoginResponden'])->name('login_responden');
+Route::post('/login_responden', [LoginRespondenController::class, 'login_responden'])->name('login_responden_post');
 
 // ------------------------------ register ---------------------------------//
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
@@ -53,6 +53,7 @@ Route::post('reset-password', [App\Http\Controllers\Auth\ResetPasswordController
 // Route::get('/dashboard1', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dashboard_klien', [App\Http\Controllers\KlienController::class, 'index'])->name('home_klien');
 Route::get('/dashboard_admin', [App\Http\Controllers\AdminController::class, 'index'])->name('home_admin');
+Route::get('/dashboard_responden', [App\Http\Controllers\RespondenController::class, 'index'])->name('home_responden');
 
 Route::get('/buatsurvei', [App\Http\Controllers\SurveiController::class, 'create'])->name('buat_survei');
 Route::post('/simpansurvei', [App\Http\Controllers\SurveiController::class, 'store'])->name('simpan_survei');
