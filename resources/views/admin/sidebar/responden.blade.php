@@ -3,7 +3,7 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-center">
                 <div class="logo">
-                    <a href="{{ route('home_admin') }}">Home</a>
+                    <a href="{{ route('home_admin') }}">Beranda</a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -16,7 +16,7 @@
                 <li class="sidebar-item">
                     <a href="{{ route('home_admin') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
-                        <span>Dashboard</span>
+                        <span>Halaman Utama</span>
                     </a>
                 </li>
                 <li class="sidebar-item has-sub">
@@ -99,7 +99,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('logout_admin') }}" class='sidebar-link' onclick="confirmSubmission()">
+                    <a href="{{ route('logout_admin') }}" class='sidebar-link' onclick="confirmSubmissionLogout()">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Keluar</span>
                     </a>
@@ -109,7 +109,7 @@
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
     <script>
-        function confirmSubmission() {
+        function confirmSubmissionLogout() {
             // Menampilkan konfirmasi
             var konfirmasi = confirm('Apakah Anda yakin ingin keluar?');
 
