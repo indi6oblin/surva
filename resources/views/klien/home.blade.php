@@ -12,17 +12,17 @@
 
         <div class="page-heading">
             <section class="row">
-                <div class="col-12 col-lg-9">
+                <div class="col-lg-8">
                     <h3>Selamat Datang, {{ auth()->user()->nama }}</h3>
                 </div>
-                <div class="col-12 col-lg-3 mr-auto">
+                <div class="col-5 col-lg-4 mr-auto">
                     <div class="card" data-bs-toggle="modal" data-bs-target="#default">
                         <div class="card-body py-4 px-4">
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">
                                     <img src="{{ URL::to('/') }}/images/photo_defaults.jpg" alt="photo">
                                 </div>
-                                <div class="ms-3 name">
+                                <div class="ms-4 name">
                                     <h5 class="font-bold">
                                         @if (auth()->user())
                                             {{ auth()->user()->nama }}
@@ -45,7 +45,7 @@
                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel1">User Profile</h5>
+                                        <h5 class="modal-title" id="myModalLabel1">Profil Pengguna</h5>
                                         <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
                                             aria-label="Close">
                                             <i data-feather="x"></i>
@@ -57,7 +57,7 @@
                                             <div class="row">
                                                 @if (auth()->user())
                                                     <div class="col-md-4">
-                                                        <label>Full Name</label>
+                                                        <label>Nama Lengkap</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="form-group has-icon-left">
@@ -72,7 +72,7 @@
                                                     </div>
                                                 @else(auth()->user())
                                                     <div class="col-md-4">
-                                                        <label>Username</label>
+                                                        <label>Nama Pengguna</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="form-group has-icon-left">
@@ -87,7 +87,7 @@
                                                     </div>
                                                 @endif
                                                 <div class="col-md-4">
-                                                    <label>Email Address</label>
+                                                    <label>Alamat Email</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group has-icon-left">
@@ -122,7 +122,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
                                             <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Close</span>
+                                            <span class="d-none d-sm-block">Tutup</span>
                                         </button>
                                     </div>
                                 </div>

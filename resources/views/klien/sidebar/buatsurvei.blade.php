@@ -3,7 +3,7 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-center">
                 <div class="logo">
-                    <a href="{{ route('home_klien') }}">Home</a>
+                    <a href="{{ route('home_klien') }}">Beranda</a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -16,7 +16,7 @@
                 <li class="sidebar-item">
                     <a href="{{ route('home_klien') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
-                        <span>Dashboard</span>
+                        <span>Halaman Utama</span>
                     </a>
                 </li>
                 <li class="sidebar-item has-sub active">
