@@ -78,6 +78,8 @@ Route::get('/verifikasi', [App\Http\Controllers\SurveiController::class, 'index_
 Route::get('/sortir_admin', [App\Http\Controllers\AdminController::class, 'sortir_admin'])->name('sortir_admin');
 Route::get('/detail_survei_sortir/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_survei_sortir'])->name('detail_survei_sortir');
 
+Route::get('/paket_pertanyaan', [App\Http\Controllers\AdminController::class, 'paket_pertanyaan'])->name('paket_pertanyaan');
+
 Route::post('/setuju/{id_survei}', [App\Http\Controllers\SurveiController::class, 'validasi_setuju'])->name('setuju');
 Route::post('/tolak/{id_survei}', [App\Http\Controllers\SurveiController::class, 'validasi_tolak'])->name('tolak');
 Route::post('/terima_bayar/{id_survei}', [App\Http\Controllers\SurveiController::class, 'terima_bayar'])->name('terima_bayar');
@@ -96,7 +98,7 @@ Route::delete('/hapus_klien/{id_klien}', [App\Http\Controllers\AdminController::
 Route::get('/kelola_responden', [App\Http\Controllers\AdminController::class, 'kelola_responden'])->name('kelola_responden');
 Route::delete('/hapus_responden/{id_responden}', [App\Http\Controllers\AdminController::class, 'hapus_responden'])->name('hapus_responden');
 
-// Route for logging out
+// Route for logging out 
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('/logoutadmin', [App\Http\Controllers\Auth\LoginAdminController::class, 'logout'])->name('logout_admin');
 Route::post('/logout_responden', [LoginRespondenController::class, 'logout'])->name('logout_responden');
