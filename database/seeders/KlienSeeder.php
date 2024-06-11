@@ -19,7 +19,7 @@ class KlienSeeder extends Seeder
             ['nama' => 'klien1',
             'username' => 'klien',
             'email' => 'klien@example.com'],
-            ['password' => Hash::make('klien1234')],
+            ['password' => Hash::make('Klien1234')],
         );
     }
 }
