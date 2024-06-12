@@ -14,8 +14,10 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
                 <li class="sidebar-item active">
-                    <a href="{{ route('home_klien') }}" class='sidebar-link'>
+                    <a href="{{ route('home_responden') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
+
+                        <i class="bi bi-house-fioll"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -27,27 +29,17 @@
                     <ul class="submenu">
                         <li class="submenu-item">
                             <a href="{{ route('buat_survei') }}">
-                                <i class="bi bi-plus-circle-fill"></i> Buat Survei
+                                <i class="bi bi-pencil-fill"></i> Survei
                             </a>
                         </li>
                         </li>
                         <li class="submenu-item ">
                             <a href="{{ route('detail_survei') }}">
-                                <i class="bi bi-menu-button-wide-fill"></i> Detail Survei
+                                <i class="bi bi-journal-text"></i> Detail Survei
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('daftar_pembayaran') }}" class='sidebar-link'>
-                        <i class="bi bi-credit-card-fill"></i>
-                        <span>Pembayaran</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('verifikasi') }}" class='sidebar-link'>
-                        <i class="bi bi-patch-check-fill"></i>
-                        <span>Verifikasi</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

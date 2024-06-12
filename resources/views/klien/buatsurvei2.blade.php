@@ -80,6 +80,7 @@
                     </div>
                 </section>
             </div>
+            
         </form>
 
             <button type="button" class="btn btn-success" onclick="addSection()">Tambah Pertanyaan</button>
