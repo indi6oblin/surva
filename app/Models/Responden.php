@@ -15,9 +15,21 @@ class Responden extends Model
 
 
     protected $fillable = [
-        'id_responden', 'username', 'password', 'nama', 'email', 'poin',
+        'id_responden', 'username', 'password', 'nama', 'email', 'poin','jenis_kelamin','umur'
     ];
 
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
     public function hasil_survei()
     {
@@ -26,7 +38,7 @@ class Responden extends Model
 
     public function survei_terjawab()
     {
-        return $this->hasMany(Survei_terjawab::class, 'id_survei'); 
+        return $this->hasMany(Survei_terjawab::class, 'id_survei');
     }
 
 }

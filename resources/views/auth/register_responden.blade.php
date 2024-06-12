@@ -18,7 +18,7 @@
                     @isset($route)
                         <form method="POST" action="{{ $route }}" class="md-float-material">
                     @else
-                        <form method="POST" action="{{ route('register') }}" class="md-float-material">
+                        <form method="POST" action="{{ route('register_responden') }}" class="md-float-material">
                     @endisset
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">

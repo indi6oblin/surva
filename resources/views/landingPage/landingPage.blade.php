@@ -66,7 +66,7 @@
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="{{ route('register') }}">Klien</a></li>
-                            <li><a href="{{ route('login_responden') }}">Responden</a></li>
+                            <li><a href="{{ route('register_responden') }}">Responden</a></li>
                         </ul>
                     </li>
                 </ul>
