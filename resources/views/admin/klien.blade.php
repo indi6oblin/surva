@@ -43,7 +43,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Klien Total</h6>
+                                                <h6 class="text-muted font-semibold">Total Klien</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     {{ $klien_count }}
                                                 </h6>
@@ -71,8 +71,8 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Klien</th>
-                                    <th>Username</th>
-                                    <th>Email</th>
+                                    <th>Nama Pengguna</th>
+                                    <th>Alamat Email</th>
                                     <th>Jumlah Survei</th>
                                     <th>Aksi</th>
                                 </tr>

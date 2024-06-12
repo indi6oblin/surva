@@ -14,7 +14,7 @@
                 body {
                     padding-bottom: 100px; /* Menyisipkan padding pada bagian bawah body sesuai dengan tinggi card */
                 }
-        
+
                 #fixedCard {
                     position: fixed;
                     bottom: 0;
@@ -68,7 +68,7 @@
                         <div class="card-header">
                             <h4 class="card-title">Judul dan Deskripsi</h4>
                         </div>
-                        
+
                         <div class="card-body">
                             <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
                             <div class="row">
@@ -102,7 +102,6 @@
                                         <p><small class="text-muted"></small>
                                         </p>
                                     </div>
-
                             </div>
                         </div>
                     </div>
@@ -125,7 +124,7 @@
                                                     <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                                 </div>
                                             </div>
-                                            <input type="text" class="form-control" id="opsi_1." placeholder="Opsi 1" name="opsi_1[]"> 
+                                            <input type="text" class="form-control" id="opsi_1." placeholder="Opsi 1" name="opsi_1[]">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -196,7 +195,7 @@
             </footer>
         </form>
     </div>
-    
+
     {{-- END FORM --}}
 
     <script>
@@ -259,7 +258,7 @@
             pertanyaanArray.pop();
         }
     }
-     
+
         function submitForm(e) {
             e.preventDefault();
             if ( confirm("Apakah Anda yakin ingin menyimpan survei?") ){
@@ -295,11 +294,11 @@
                 }
             });
 
-            } else { 
+            } else {
                 return false;
             }
             // Loop through each section and submit the data
-            
+
         }
 
     </script>

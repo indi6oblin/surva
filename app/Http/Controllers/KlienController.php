@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use DB;
 use App\Models\Klien;
 use App\Models\Survei;
-use DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class KlienController extends Controller
 {
@@ -16,12 +17,19 @@ class KlienController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+{
+    // Check if the user is authenticated
+    if (Auth::check()) {
+        $user = Auth::user();
         $Klien = Klien::all();
-        $kliensurvei = Auth::user()->survei;
+        $kliensurvei = $user->survei; // Ensure 'survei' is a relationship on the User or Klien model
 
-        return view('klien.home', ['klien' => $Klien], compact('kliensurvei'));
+        return view('klien.home', compact('Klien', 'kliensurvei'));
+    } else {
+        // Redirect to login if not authenticated
+        return redirect()->route('login')->withErrors('Please log in to access this page.');
     }
+}
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +38,7 @@ class KlienController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     public function detail_survei2()
@@ -75,7 +83,7 @@ class KlienController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**

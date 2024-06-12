@@ -39,7 +39,7 @@
                         <div class="card-header">
                             <h4 class="card-title">Judul dan Deskripsi</h4>
                         </div>
-                        
+
                         <div class="card-body">
                             <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
                             <div class="row">
@@ -73,8 +73,6 @@
                                         <p><small class="text-muted"></small>
                                         </p>
                                     </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -104,7 +102,7 @@
     {{-- END FORM --}}
 
     <script>
-     
+
         function submitForm(e) {
             e.preventDefault();
             if ( confirm("Apakah Anda yakin ingin menyimpan survei?") ){
@@ -140,11 +138,11 @@
                 }
             });
 
-            } else { 
+            } else {
                 return false;
             }
             // Loop through each section and submit the data
-            
+
         }
 
     </script>

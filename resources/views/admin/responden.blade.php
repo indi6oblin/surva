@@ -42,7 +42,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-8">
-                                            <h6 class="text-muted font-semibold">Responden Total</h6>
+                                            <h6 class="text-muted font-semibold">Total Responden</h6>
                                             <h6 class="font-extrabold mb-0">
                                                 {{ $responden_count }}
                                             </h6>
@@ -68,9 +68,9 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                    <th>Poin</th>
+                                    <th>Nama Pengguna</th>
+                                    <th>Alamat Email</th>
+                                    <th>Total Poin</th>
                                     {{-- <th>Survei Terjawab</th> --}}
                                     <th>Aksi</th>
                                 </tr>

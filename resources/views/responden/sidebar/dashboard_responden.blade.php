@@ -14,7 +14,7 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
                 <li class="sidebar-item active">
-                    <a href="{{ route('home_responden') }}" class='sidebar-link'>
+                    <a href="{{ route('home_klien') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -56,12 +56,6 @@
                         <span>Profil</span>
                     </a>
                 </li>
-                {{-- <li class="sidebar-item">
-                    <a href="{{ route('buat_survei2') }}" class='sidebar-link'>
-                        <i class="bi bi-credit-card-fill"></i>
-                        <span>Buat Survei</span>
-                    </a>
-                </li> --}}
                 <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
@@ -75,13 +69,6 @@
                         </div>
                     </div>
                 </li>
-
-                {{-- <li class="sidebar-item">
-                    <a href="{{ route('change/password') }}" class='sidebar-link'>
-                        <i class="bi bi-shield-lock"></i>
-                        <span>Change Password</span>
-                    </a>
-                </li> --}}
 
                     <li class="sidebar-item  has-sub visually-hidden">
                         <a href="#" class='sidebar-link'>

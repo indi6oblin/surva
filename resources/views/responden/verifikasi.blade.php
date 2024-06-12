@@ -9,7 +9,7 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        
+
         {!! Toastr::message() !!}
         <div class="page-content">
             <div class="page-title">
@@ -81,7 +81,7 @@
                                         @endphp
 
                                         <span class="badge {{ $badgeColor }}">{{ $status }}</span>
-                                        {{-- <span class="badge bg-success">Disetujui</span> --}}
+                                        
                                     </td>
                                 </tr>
                                 @endif
@@ -93,21 +93,7 @@
 
             </section>
 
-
-            {{-- <section class="row">
-                <div class="col-12 col-lg-9">
-                </div>
-                <div class="col-3 col-lg-3">
-                    
-                    {{-- user profile modal --}}
-                    
-                    {{-- end user profile modal --}}
-
-                {{-- </div> --}}
-            {{-- </section> --}}
-
         </div>
-
 
         </div>
         <footer>
