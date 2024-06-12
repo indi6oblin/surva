@@ -23,7 +23,7 @@ class AdminController extends Controller
         $responden = Responden::count();
         $survei_count = Survei::count();
         $survei = DB::table('survei')->get();
-    
+
         foreach ($survei as $key => $item) {
             $tgl_mulai = Carbon::parse($item->tgl_mulai);
             $tgl_selesai = Carbon::parse($item->tgl_selesai);
@@ -33,7 +33,7 @@ class AdminController extends Controller
             $item->target_days = $target_days;
             $item->total_pertanyaan = $totalPertanyaan;
         }
-    
+
         return view('admin.home_admin', compact('klien', 'admin', 'survei_count', 'responden', 'survei'));
     }
 
@@ -212,7 +212,7 @@ class AdminController extends Controller
 
 
 
-    public function PaketPertanyaan($id_pertanyaan)
+    public function paket_pertanyaan($id_pertanyaan)
     {
         $pertanyaan = Pertanyaan::findOrFail($id_pertanyaan);
         $paketpertanyaan = paket_pertanyaan::where('paket_pertanyaan', $pertanyaan->paket_pertanyaan)->get();
