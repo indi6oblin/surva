@@ -45,6 +45,9 @@ Route::post('/login_responden', [LoginRespondenController::class, 'login_respond
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'storeUser']);
 
+Route::get('/register_responden', [App\Http\Controllers\Auth\RegisterController::class, 'register_responden'])->name('register_responden');
+Route::post('/register_responden', [App\Http\Controllers\Auth\RegisterController::class, 'storeResponden']);
+
 // ----------------------------- reset password -----------------------------//
 Route::get('reset-password/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'getPassword']);
 Route::post('reset-password', [App\Http\Controllers\Auth\ResetPasswordController::class, 'updatePassword']);

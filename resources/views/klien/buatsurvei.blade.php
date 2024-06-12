@@ -184,6 +184,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div style="overflow: auto;">
+                                <button type="button" class="btn btn-danger" onclick="removeSection()" style="width: auto; padding: 5px 10px; float: right;">Hapus Pertanyaan</button>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -191,7 +194,7 @@
                 </div>
 
                 <button type="button" class="btn btn-success" onclick="addSection()">Tambah Pertanyaan</button>
-                <button type="button" class="btn btn-danger" onclick="removeSection()">Hapus Pertanyaan</button>
+                <!-- <button type="button" class="btn btn-danger" onclick="removeSection()">Hapus Pertanyaan</button> -->
     
                 {{-- <div id="fixedCard" class="card">
                     <div class="card-body">

@@ -62,6 +62,13 @@
                             <li><a href="{{ route('login_responden') }}">Responden</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown"><a href="#"><span>Daftar</span> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ route('register') }}">Klien</a></li>
+                            <li><a href="{{ route('register_responden') }}">Responden</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -96,12 +103,12 @@
                             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a
                                     href="{{ route('register') }}" class="btn btn-outline-white">Daftar Sekarang</a></p>
                         </div>
-                        <div class="col-lg-4 iphone-wrap">
+                        <!-- <div class="col-lg-4 iphone-wrap">
                             <img src="/landingPage/assets/img/home-responden.png" alt="Image" class="phone-1"
                                 data-aos="fade-right">
                             <img src="/landingPage/assets/img/login-responden.png" alt="Image" class="phone-2"
                                 data-aos="fade-right" data-aos-delay="200">
-                        </div>
+                        </div> -->
                     </div> -->
                 </div>
             </div>
@@ -204,7 +211,7 @@
     <footer class="footer" role="contentinfo">
         <div class="container">
 
-            <div class="row justify-content-center text-center">
+            <!-- <div class="row justify-content-center text-center">
                 <div class="col-md-7">
                     <p class="copyright">&copy; Copyright SoftLand. All Rights Reserved</p>
                     <div class="credits">
@@ -214,10 +221,10 @@
             Licensing information: https://bootstrapmade.com/license/
             Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=SoftLand
           -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                         <!-- by <a href="https://bootstrapmade.com/">BooDesignedtstrapMade</a> -->
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </footer>
