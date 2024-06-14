@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -81,7 +82,7 @@ Route::get('/verifikasi', [App\Http\Controllers\SurveiController::class, 'index_
 Route::get('/sortir_admin', [App\Http\Controllers\AdminController::class, 'sortir_admin'])->name('sortir_admin');
 Route::get('/detail_survei_sortir/{id_survei}', [App\Http\Controllers\AdminController::class, 'detail_survei_sortir'])->name('detail_survei_sortir');
 
-Route::get('/paket_pertanyaan/', [App\Http\Controllers\AdminController::class, 'paket_pertanyaan'])->name('paket_pertanyaan');
+Route::get('/paket_pertanyaan', [AdminController::class, 'paket_pertanyaan'])->name('paket_pertanyaan');
 
 Route::post('/setuju/{id_survei}', [App\Http\Controllers\SurveiController::class, 'validasi_setuju'])->name('setuju');
 Route::post('/tolak/{id_survei}', [App\Http\Controllers\SurveiController::class, 'validasi_tolak'])->name('tolak');
