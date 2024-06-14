@@ -210,13 +210,19 @@ class AdminController extends Controller
         return view('admin.detail_dibatalkan', compact('survei', 'pertanyaan'));
     }
 
-
-
-    public function paket_pertanyaan($id_pertanyaan)
+    public function paket_pertanyaan()
     {
-        $pertanyaan = Pertanyaan::findOrFail($id_pertanyaan);
-        $paketpertanyaan = paket_pertanyaan::where('paket_pertanyaan', $pertanyaan->paket_pertanyaan)->get();
+        // $pertanyaan = Pertanyaan::findOrFail::all();
+        $paketPertanyaan = Paket_Pertanyaan::all();
+        return view('admin.sidebar.paket_pertanyaan', compact('paketPertanyaan'));
 
-        return view('admin.paket_pertanyaan', compact('pertanyaan', 'paketpertanyaan'));
     }
+
+    // public function paket_pertanyaan($id_pertanyaan)
+    // {
+    //     $pertanyaan = Pertanyaan::findOrFail($id_pertanyaan);
+    //     $paketpertanyaan = paket_pertanyaan::where('paket_pertanyaan', $pertanyaan->paket_pertanyaan)->get();
+
+    //     return view('admin.paket_pertanyaan', compact('pertanyaan', 'paketpertanyaan'));
+    // }
 }
