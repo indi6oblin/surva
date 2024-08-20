@@ -25,6 +25,24 @@ class SurveiController extends Controller
         return view('klien.detail_survei', compact('kliensurvei'));
     }
 
+    public function index_resposden()
+    {
+        $survei = Survei::all();
+
+        return view('responden.detail_survei', compact('survei'));
+    }
+
+
+
+    public function respondensurvei($id_survei)
+    {
+        // Dapatkan survei berdasarkan id dengan pertanyaannya
+        $survei = Survei::with('pertanyaan')->findOrFail($id_survei);
+        dd($survei);
+        // Return view dengan survei dan pertanyaan
+        return view('responden.detail_survei', compact('survei'));
+
+    }
     public function index_pembayaran()
     {
         $kliensurvei = Auth::user()->survei;
@@ -52,6 +70,30 @@ class SurveiController extends Controller
         return view('klien.buatsurvei2');
     }
 
+    public function showQuestion() {
+        return view('survey_question');
+    }
+
+    public function submit(Request $request) {
+        // Handle form submission
+        $data = $request->validate([
+            'question' => 'required|string',
+        ]);
+
+        // Save the data
+        // SurveyResponse::create($data);
+
+        return redirect()->route('surveys.question')->with('success', 'Survey submitted successfully!');
+    }
+
+    public function paketPertanyaan()
+{
+    // Mengambil survei dan pertanyaan terkait untuk klien
+    $kliensurvei = Auth::user()->survei()->with('pertanyaan')->get();
+
+    return view('klien.paket_pertanyaan', compact('kliensurvei'));
+}
+
     /**
      * Store a newly created resource in storage.
      *
@@ -63,98 +105,137 @@ class SurveiController extends Controller
         // return dump($request);
 
         // ddd( $request );
-  
+        // try {
+        // $request->validate([
+        //     'judul' => 'required',
+        //     'deskripsi' => 'required',
+        //     'tgl_mulai' => 'required|date',
+        //     'tgl_selesai' => 'required|date|after:tgl_mulai',
+        //     'jumlah_responden' => 'required|numeric',
+        //     'tanya.*' => 'required|string|max:255',
+        //     'opsi_1.*' => 'required|string|max:255',
+        //     'opsi_2.*' => 'required|string|max:255',
+        //     'opsi_3.*' => 'required|string|max:255',
+        //     'opsi_4.*' => 'required|string|max:255',
+        //     'opsi_5.*' => 'required|string|max:255',
+        // ]);
+
+        // $id_klien = auth()->user()->id_klien; // Assuming the user is logged in and 'id' is the user's ID.
+
+        // $survei = survei::create([
+        //     'id_klien' => $id_klien,
+        //     'judul' => $request->judul,
+        //     'deskripsi' => $request->deskripsi,
+        //     'tgl_mulai' => $request->tgl_mulai,
+        //     'tgl_selesai' => $request->tgl_selesai,
+        //     'jumlah_responden' => $request->jumlah_responden,
+        //     'status' => 'Sortir',
+        //     'poin' => '5',
+        // ]);
+
+
+        // // Add questions and options
+
+        // foreach( $request->tanya as $key => $value ) {
+
+        //     $id_survei = $survei->id_survei;
+        //     $pertanyaan = $request->tanya[ $key ];
+        //     $opsi_1 = $request->opsi_1[ $key ];
+        //     $opsi_2 = $request->opsi_2[ $key ];
+        //     $opsi_3 = $request->opsi_3[ $key ];
+        //     $opsi_4 = $request->opsi_4[ $key ];
+        //     $opsi_5 = $request->opsi_5[ $key ];
+
+        //     $pertanyaan = Pertanyaan::create([
+        //         'id_survei' => $id_survei,
+        //         'pertanyaan' => $pertanyaan,
+        //         'opsi_1' => $opsi_1,
+        //         'opsi_2' => $opsi_2,
+        //         'opsi_3' => $opsi_3,
+        //         'opsi_4' => $opsi_4,
+        //         'opsi_5' => $opsi_5,
+        //     ]);
+
+        // }
+
         try {
-        $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'tgl_mulai' => 'required|date',
-            'tgl_selesai' => 'required|date|after:tgl_mulai',
-            'jumlah_responden' => 'required|numeric',
-            'tanya.*' => 'required|string|max:255',
-            'opsi_1.*' => 'required|string|max:255',
-            'opsi_2.*' => 'required|string|max:255',
-            'opsi_3.*' => 'required|string|max:255',
-            'opsi_4.*' => 'required|string|max:255',
-            'opsi_5.*' => 'required|string|max:255',
-        ]);
-
-        $id_klien = auth()->user()->id_klien; // Assuming the user is logged in and 'id' is the user's ID.
-
-        $survei = Survei::create([
-            'id_klien' => $id_klien,
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'tgl_mulai' => $request->tgl_mulai,
-            'tgl_selesai' => $request->tgl_selesai,
-            'jumlah_responden' => $request->jumlah_responden,
-            'status' => 'Sortir',
-            'poin' => '5',
-        ]);
-
-
-        // Add questions and options
-
-        foreach( $request->tanya as $key => $value ) {
-
-            $id_survei = $survei->id_survei;
-            $pertanyaan = $request->tanya[ $key ];
-            $opsi_1 = $request->opsi_1[ $key ];
-            $opsi_2 = $request->opsi_2[ $key ];
-            $opsi_3 = $request->opsi_3[ $key ];
-            $opsi_4 = $request->opsi_4[ $key ];
-            $opsi_5 = $request->opsi_5[ $key ];
-
-            $pertanyaan = Pertanyaan::create([
-                'id_survei' => $id_survei,
-                'pertanyaan' => $pertanyaan,
-                'opsi_1' => $opsi_1,
-                'opsi_2' => $opsi_2,
-                'opsi_3' => $opsi_3,
-                'opsi_4' => $opsi_4,
-                'opsi_5' => $opsi_5,
+            $request->validate([
+                'judul' => 'required',
+                'deskripsi' => 'required',
+                'tgl_mulai' => 'required|date',
+                'tgl_selesai' => 'required|date|after:tgl_mulai',
+                'jumlah_responden' => 'required|numeric',
+                'tanya.*' => 'required|string|max:255',
+                'opsi_1.*' => 'nullable|string|max:255',
+                'opsi_2.*' => 'nullable|string|max:255',
+                'opsi_3.*' => 'nullable|string|max:255',
+                'opsi_4.*' => 'nullable|string|max:255',
+                'opsi_5.*' => 'nullable|string|max:255',
+                'essai.*' => 'nullable|string|max:255',
             ]);
 
-        }
+            $id_klien = auth()->user()->id_klien; // Assuming the user is logged in and 'id_klien' is the user's ID.
 
-        // foreach ($request->pertanyaanArray as $pertanyaanData) {
-        //     $pertanyaan = Pertanyaan::create([
-        //         'id_survei' => $survei->id_survei,
-        //         'pertanyaan' => $pertanyaanData['pertanyaan'],
-        //         'opsi_1' => $pertanyaanData['opsi_1'],
-        //         'opsi_2' => $pertanyaanData['opsi_2'],
-        //         'opsi_3' => $pertanyaanData['opsi_3'],
-        //         'opsi_4' => $pertanyaanData['opsi_4'],
-        //         'opsi_5' => $pertanyaanData['opsi_5'],
-        //     ]);
-        // }
-        
-        // return response()->json([
-        //     'message' => 'Survei dan Pertanyaan berhasil disimpan'
-        // ], 200);
-        // $detailSurveiUrl = URL::route('detail_survei', ['parameter_survei' => $id_survei]);
+            $survei = Survei::create([
+                'id_klien' => $id_klien,
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'tgl_mulai' => $request->tgl_mulai,
+                'tgl_selesai' => $request->tgl_selesai,
+                'jumlah_responden' => $request->jumlah_responden,
+                'status' => 'Sortir',
+                'poin' => '5',
+            ]);
 
-        // // Menambahkan link dalam respons JSON
-        // return response()->json([
-        //     'message' => 'Survei dan Pertanyaan berhasil disimpan',
-        //     'detail_survei_url' => $detailSurveiUrl,
-        // ], 200);
-        return Redirect::route('detail_survei')
-            ->with('message', 'Survei dan Pertanyaan berhasil disimpan');
+            foreach ($request->tanya as $key => $value) {
+                // Check if the question is an essay or multiple-choice
+                if ($request->question_type[$key] == 'essay') {
+                    Pertanyaan::create([
+                        'id_survei' => $survei->id_survei,
+                        'pertanyaan' => $value,
+                        'type' => 'essay', // Assume you have a 'type' field to distinguish question types
+                    ]);
+                } else {
+                    Pertanyaan::create([
+                        'id_survei' => $survei->id_survei,
+                        'pertanyaan' => $value,
+                        'opsi_1' => $request->opsi_1[$key],
+                        'opsi_2' => $request->opsi_2[$key],
+                        'opsi_3' => $request->opsi_3[$key],
+                        'opsi_4' => $request->opsi_4[$key],
+                        'opsi_5' => $request->opsi_5[$key],
+                        'type' => 'multiple_choice',
+                    ]);
+                }
+            }
 
-        // Add questions and options
-        return redirect()->route('detail_survei')->with('success', 'Survei Anda Berhasil Ditambahkan!');
+            return redirect()->route('detail_survei')->with('success', 'Survei Anda Berhasil Ditambahkan!');
         } catch (\Exception $e) {
             return response()->json([
                 'error' => $e->getMessage()
             ], 500);
         }
+        return Redirect::route('detail_survei')
+            ->with('message', 'Survei dan Pertanyaan berhasil disimpan');
+
+        // Add questions and options
+        // return redirect()->route('detail_survei')->with('success', 'Survei Anda Berhasil Ditambahkan!');
+        // } catch (\Exception $e) {
+        //     return response()->json([
+        //         'error' => $e->getMessage()
+        //     ], 500);
+        // }
     }
 
-    public function store2(Request $request)
-    {
+    // SurveyController.php
+public function jawabSurvei($id_survei)
+{
+    $survei = Survei::findOrFail($id_survei);
+    $pertanyaan = $survei->pertanyaan; // Sesuaikan dengan relasi model
+    return view('responden.jawab_survei2', compact('survei', 'pertanyaan'));
+}
 
-    }
+
 
     public function validasi_setuju(Request $request, $id_survei)
     {
@@ -176,13 +257,13 @@ class SurveiController extends Controller
 
             if (!$survei) {
                 return redirect()->back()->with('error', 'Survei not found');
-            }    
+            }
 
             $survei->status = 'Belum Bayar';
             $survei->nominal = $request->input('nominal');
             $survei->rincian_harga = $request->input('rincian_harga');
             $survei->poin = $request->input('poin');
-            
+
             // Save the changes
             $survei->save();
 
@@ -247,7 +328,7 @@ class SurveiController extends Controller
 
         $survei->status = 'Ditolak';
         $survei->deskripsi_validasi = $request->input('deskripsi_validasi');
-        
+
         $survei->save();
 
         return redirect()->route('dibatalkan')->with('success', 'Survei Berhasil Ditolak');
@@ -266,35 +347,16 @@ class SurveiController extends Controller
         }
 
         // Upload and save the payment proof
-        $buktiPath = $request->file('bukti')->store('public/bukti_pembayaran');
-        $survei->bukti = $buktiPath;
+        $bukti = $request->file('bukti');
+        $buktiName = time() . '_' . $bukti->getClientOriginalName();
+        $bukti->storeAs('public/bukti_pembayaran', $buktiName);
+
+        $survei->bukti = 'bukti_pembayaran/' . $buktiName;
         $survei->status = 'Sudah Bayar';
         $survei->save();
 
         return redirect()->route('verifikasi')->with('success', 'Pembayaran Anda Berhasil Disimpan.');
     }
-
-//     public function store_pembayaran(Request $request)
-// {
-//     $request->validate([
-//         'bukti' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-//     ]);
-
-//     $survei = Survei::find($request->id_survei);
-
-//     if (!$survei) {
-//         return redirect()->back()->with('error', 'Survey not found.');
-//     }
-
-//     $buktiPath = $request->file('bukti')->storeAs('public/bukti_pembayaran', $survei->id . '.' . $request->file('bukti')->extension());
-
-//     $survei->update([
-//         'bukti' => Storage::url($buktiPath),
-//         'status' => 'Sudah Bayar',
-//     ]);
-
-//     return redirect()->route('verifikasi')->with('success', 'Pembayaran Anda Berhasil Disimpan.');
-// }
 
     /**
      * Display the specified resource.
@@ -308,7 +370,7 @@ class SurveiController extends Controller
         // return view('', compact('survey'));
 
         $klien = Auth::user();
-        $survei = $klien->survei()->findOrFail($id_survei);
+        $survei = $klien->Survei()->findOrFail($id_survei);
         $pertanyaan = $survei->pertanyaan;
 
         return view('klien.detail_survei2', compact('survei', 'pertanyaan'));
@@ -347,4 +409,17 @@ class SurveiController extends Controller
     {
         //
     }
+
+    public function getBuktiPembayaran($id_survei)
+    {
+        // Asumsikan nama file bukti pembayaran adalah id_survei.jpg
+        $filePath = public_path('bukti_pembayaran/' . $id_survei . '.jpg');
+
+        if (file_exists($filePath)) {
+            return response()->file($filePath);
+        } else {
+            return response()->json(['message' => 'Bukti pembayaran tidak ditemukan.'], 404);
+        }
+    }
+
 }

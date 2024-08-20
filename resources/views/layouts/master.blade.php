@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" name="csrf-token" content="{{ csrf_token() }}">
-    <link href="landingPage/assets/img/logoapp.png" rel="icon">
-    <link href="landingPage/assets/img/logoapp.png" rel="apple-touch-icon">
+
+    <link href="landingPage/assets/img/logoapp.png" rel="icon">    <!-- <link href="landingPage/assets/img/logoapp.png" rel="apple-touch-icon"> -->
     <title>SURVA</title>
     <link rel="shortcut icon" href="{{ URL::to('assets/images/favicon.png') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">

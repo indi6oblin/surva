@@ -1,10 +1,12 @@
 @extends('layouts.master')
 
 @section('menu')
-    @extends('klien.sidebar.buatsurvei')
+    @extends('responden.sidebar.buatsurvei')
 @endsection
 
 @section('content')
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
@@ -70,7 +72,7 @@
                         </div>
 
                         <div class="card-body">
-                            <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
+                            <input type="hidden" name="id_klien" value="{{ auth('responden')->user()->nama }}" id="id_klien">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">

@@ -1,9 +1,11 @@
+<!-- @extends('layouts.master') -->
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
             <div class="d-flex justify-content-center">
                 <div class="logo">
-                    <a href="{{ route('home_admin') }}">Home</a>
+                    <a href="{{ route('home_admin') }}">Beranda</a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -16,10 +18,10 @@
                 <li class="sidebar-item">
                     <a href="{{ route('home_admin') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
-                        <span>Dashboard</span>
+                        <span>Halaman Utama</span>
                     </a>
                 </li>
-                <li class="sidebar-item has-sub active">
+                <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-file-text-fill"></i>
                         <span>Survei</span>
@@ -35,12 +37,12 @@
                                 <i class="bi bi-wallet2"></i> Validasi Bayar
                             </a>
                         </li>
-                        <li class="submenu-item active">
+                        <li class="submenu-item">
                             <a href="{{ route('disetujui') }}">
                                 <i class="bi bi-card-checklist"></i> Disetujui
                             </a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item">
                             <a href="{{ route('dibatalkan') }}">
                                 <i class="bi bi-trash"></i> Dibatalkan
                             </a>
@@ -59,9 +61,9 @@
                         <span>Responden</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('paket_pertanyaan') }}" class='sidebar-link'>
-                    <i class="bi bi-envelope"></i>
+                <li class="sidebar-item active">
+                    <a href="{{ route('kelola_paket_pertanyaan') }}" class='sidebar-link'>
+                        <i class="bi bi-envelope"></i>
                         <span>Paket pertanyaan</span>
                     </a>
                 </li>
@@ -78,3 +80,79 @@
                         </div>
                     </div>
                 </li>
+
+                <li class="sidebar-item has-sub visually-hidden">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-hexagon-fill"></i>
+                        <span>Halaman Pengguna</span>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="{{ route('userManagement') }}">Daftar Pengguna</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="{{ route('logout_admin') }}" class='sidebar-link' onclick="confirmSubmission()">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Keluar</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>
+
+<style>
+/* Contoh CSS */
+/* Gaya default untuk item menu */
+.sidebar-item .sidebar-link {
+    color: #000; /* Warna teks default */
+    background-color: #fff; /* Warna latar belakang default */
+}
+
+/* Gaya untuk item menu yang aktif */
+.sidebar-item.active .sidebar-link,
+.sidebar-item .submenu-item.active a {
+    color: #fff; /* Warna teks untuk item aktif */
+    background-color: #007bff; /* Warna latar belakang untuk item aktif, sesuaikan dengan kebutuhan */
+}
+
+/* Gaya untuk sub-menu item yang aktif */
+.submenu-item.active a {
+    color: #fff; /* Warna teks untuk item sub-menu aktif */
+    background-color: #007bff; /* Warna latar belakang untuk item sub-menu aktif */
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const currentLocation = location.href;
+    const menuItems = document.querySelectorAll('.sidebar-item a');
+
+    menuItems.forEach(item => {
+        if (item.href === currentLocation) {
+            item.parentElement.classList.add('active');
+        } else {
+            item.parentElement.classList.remove('active');
+        }
+    });
+});
+
+function confirmSubmission() {
+    // Menampilkan konfirmasi
+    var konfirmasi = confirm('Apakah Anda yakin ingin keluar?');
+
+    // Memeriksa apakah pengguna menyetujui atau membatalkan
+    if (konfirmasi) {
+        document.getElementById('buktiForm').submit();
+    } else {
+        // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
+        alert('Anda batal keluar.');
+        // Hindari pengiriman formulir dengan menghentikan peristiwa default
+        event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
+    }
+}
+</script>

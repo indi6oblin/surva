@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="auth">
         <div class="row h-100">
             <div class="col-lg-5 col-12">

@@ -13,14 +13,25 @@ class Hasil_survei extends Model
 
 
     protected $fillable = array(
-        'id_hasil', 'id_pertanyaan', 'id_responden', 'hasil_opsi',
+
+        'id_responden',
+        'hasil_opsi',
+        'hasil_essai',
+        'id_survei'
     );
 
-    public function pertanyaan(){
+    public function pertanyaan()
+    {
         return $this->belongsTo(Pertanyaan::class, 'id_pertanyaan');
     }
 
-    public function responden(){
+    public function responden()
+    {
         return $this->belongsTo(Responden::class, 'id_responden');
+    }
+
+    public function survei()
+    {
+        return $this->belongsTo(Survei::class, 'id_survei');
     }
 }

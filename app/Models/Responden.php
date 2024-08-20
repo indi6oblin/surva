@@ -2,24 +2,33 @@
 
 namespace App\Models;
 
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Responden extends Model
+class Responden extends Authenticatable
 {
-    use HasFactory, HasApiTokens;
+    use HasFactory, Notifiable;
 
     protected $table = 'responden';
     protected $primaryKey = 'id_responden';
 
 
     protected $fillable = [
-        'id_responden', 'username', 'password', 'nama', 'email', 'poin','jenis_kelamin','umur'
+        'id_responden',
+        'username',
+        'password',
+        'nama',
+        'email',
+        'poin',
+        'jenis_kelamin',
+        'umur'
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -40,5 +49,4 @@ class Responden extends Model
     {
         return $this->hasMany(Survei_terjawab::class, 'id_survei');
     }
-
 }

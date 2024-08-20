@@ -3,13 +3,14 @@
     @extends('klien.sidebar.detail_survei')
 @endsection
 @section('content')
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        
+
         {{-- <div class="page-heading">
             <section class="row">
                 <div class="col-12 col-lg-9">
@@ -168,9 +169,9 @@
                                         <a href="{{ route('detail_survei2', $survei->id_survei) }}" class="btn btn-primary btn-sm ml-auto">Lihat Detail</a>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                     @endforeach
@@ -181,7 +182,7 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
                 <div class="float-start">
-                    <p>2023 &copy; Aplikasi Survey dan Analisis Data</p>
+                    <p>2024 &copy; Aplikasi Survey dan Analisis Data</p>
                 </div>
             </div>
         </footer>

@@ -3,6 +3,8 @@
     @extends('admin.sidebar.disetujui')
 @endsection
 @section('content')
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
@@ -186,30 +188,30 @@
                             </div>
                             <div class="form-group col-6">
                                 <label for="helperText"><strong>Status : </strong></label>
-                                
+
                                 @php
                                     $status = $survei->status;
                                     $badgeColor = '';
 
                                     switch ($status) {
-                                            case 'Sortir':
-                                                $badgeColor = 'bg-secondary';
-                                                break;
-                                            case 'Belum Bayar':
-                                                $badgeColor = 'bg-danger';
-                                                break;
-                                            case 'Sudah Bayar':
-                                                $badgeColor = 'bg-info';
-                                                break;
-                                            case 'Disetujui':
-                                                $badgeColor = 'bg-success';
-                                                break;
-                                            case 'Ditolak':
-                                                $badgeColor = 'bg-dark';
-                                                break;
-                                            // Add more cases as needed
-                                            default:
-                                                $badgeColor = 'bg-warning';
+                                        case 'Sortir':
+                                            $badgeColor = 'bg-secondary';
+                                            break;
+                                        case 'Belum Bayar':
+                                            $badgeColor = 'bg-danger';
+                                            break;
+                                        case 'Sudah Bayar':
+                                            $badgeColor = 'bg-info';
+                                            break;
+                                        case 'Disetujui':
+                                            $badgeColor = 'bg-success';
+                                            break;
+                                        case 'Ditolak':
+                                            $badgeColor = 'bg-dark';
+                                            break;
+                                        // Add more cases as needed
+                                        default:
+                                            $badgeColor = 'bg-warning';
                                     }
                                 @endphp
                                 <p>
@@ -242,149 +244,71 @@
         </section>
 
         <div id="sections-container">
-            <section class="section">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1"
-                                        class="form-label"><strong>Pertanyaan</strong></label>
-                                    <p type="text">
-                                        Bagaimana perkuliahan hybrid menurut anda?
-                                    </p>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Sangat Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Cukup Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Tidak Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Sangat Tidak Baik
-                                    </label>
-                                </div>
-                                <div class="form-group" style="padding-top: 30px">
-                                    <p type="text">
-                                        Bagaimana perkuliahan hybrid menurut anda?
-                                    </p>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Sangat Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Cukup Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Tidak Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Sangat Tidak Baik
-                                    </label>
-                                </div>
-                                <div class="form-group" style="padding-top: 30px">
-                                    <p type="text">
-                                        Bagaimana perkuliahan hybrid menurut anda?
-                                    </p>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Sangat Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Cukup Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Tidak Baik
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDisabled"
-                                        id="flexRadioDisabled" disabled>
-                                    <label class="form-check-label" for="flexRadioDisabled">
-                                        Sangat Tidak Baik
-                                    </label>
-                                </div>
-                                {{-- <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
-                                            </div>
+            @foreach ($pertanyaan as $index => $pertanyaanItem)
+                <section class="section">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1"
+                                            class="form-label"><strong>Pertanyaan</strong></label>
+                                        <p type="text">{{ $pertanyaanItem->pertanyaan }}</p>
+                                    </div>
+                                    @if ($pertanyaanItem->type === 'essay')
+                                        <!-- Jika soal esai, tampilkan jawaban -->
+                                        <p type="text">{{ $pertanyaanItem->jawaban }}</p>
+                                    @else
+                                        <!-- Jika bukan soal esai, tampilkan pilihan opsi -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"
+                                                name="flexRadioDisabled{{ $index }}"
+                                                id="flexRadioDisabled1{{ $index }}" disabled>
+                                            <label class="form-check-label" for="flexRadioDisabled1{{ $index }}">
+                                                {{ $pertanyaanItem->opsi_1 }}
+                                            </label>
                                         </div>
-                                        <div class="col-md-11">
-                                            <input type="text" class="form-control" id="basicInput" placeholder="Opsi 1">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"
+                                                name="flexRadioDisabled{{ $index }}"
+                                                id="flexRadioDisabled2{{ $index }}" disabled>
+                                            <label class="form-check-label" for="flexRadioDisabled2{{ $index }}">
+                                                {{ $pertanyaanItem->opsi_2 }}
+                                            </label>
                                         </div>
-                                    </div> --}}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"
+                                                name="flexRadioDisabled{{ $index }}"
+                                                id="flexRadioDisabled3{{ $index }}" disabled>
+                                            <label class="form-check-label" for="flexRadioDisabled3{{ $index }}">
+                                                {{ $pertanyaanItem->opsi_3 }}
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"
+                                                name="flexRadioDisabled{{ $index }}"
+                                                id="flexRadioDisabled4{{ $index }}" disabled>
+                                            <label class="form-check-label" for="flexRadioDisabled4{{ $index }}">
+                                                {{ $pertanyaanItem->opsi_4 }}
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio"
+                                                name="flexRadioDisabled{{ $index }}"
+                                                id="flexRadioDisabled5{{ $index }}" disabled>
+                                            <label class="form-check-label" for="flexRadioDisabled5{{ $index }}">
+                                                {{ $pertanyaanItem->opsi_5 }}
+                                            </label>
+                                        </div>
+                                    @endif
+                                    {{-- <div id="myChart{{ $index }}"
+                                        style="width:100%; max-width:600px; height:350px;"></div> --}}
+                                </div>
                             </div>
-
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            @endforeach
 
             {{-- <section class="row">
                 <div class="col-12 col-lg-9">
@@ -402,7 +326,7 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
                 <div class="float-start">
-                    <p>2023 &copy; Aplikasi Survey dan Analisis Data</p>
+                    <p>2024 &copy; Aplikasi Survey dan Analisis Data</p>
                 </div>
             </div>
         </footer>

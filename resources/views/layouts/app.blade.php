@@ -17,8 +17,6 @@
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
     <link href="landingPage/assets/img/logoapp.png" rel="icon">
-    <link href="landingPage/assets/img/logoapp.png" rel="apple-touch-icon">
-
 </head>
 <style>
     .form-group[class*=has-icon-].has-icon-left .form-select {

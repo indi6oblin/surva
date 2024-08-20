@@ -58,9 +58,8 @@ class LoginRespondenController extends Controller
             'password.min' => 'Panjang password minimal 8 karakter.',
             'password.regex' => 'Password harus mengandung setidaknya satu huruf kecil, satu huruf besar, satu angka.',
         ]);
-
         // Attempt to log in the respondent
-        if (Auth::attempt($credentials)) {
+        if (Auth::guard('responden')->attempt($credentials)) {
             Toastr::success('Autentikasi Berhasil :)', 'Sukses!');
             return redirect()->intended('dashboard_responden');
         }

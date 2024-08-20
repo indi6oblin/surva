@@ -1,9 +1,11 @@
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
             <div class="d-flex justify-content-center">
                 <div class="logo">
-                    <a href="{{ route('home_responden') }}">Home</a>
+                    <a href="{{ route('home_responden') }}">Beranda</a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -16,9 +18,7 @@
                 <li class="sidebar-item active">
                     <a href="{{ route('home_responden') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
-
-                        <i class="bi bi-house-fioll"></i>
-                        <span>Dashboard</span>
+                        <span>Halaman Utama</span>
                     </a>
                 </li>
                 <li class="sidebar-item has-sub">
@@ -28,14 +28,14 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="{{ route('buat_survei') }}">
-                                <i class="bi bi-pencil-fill"></i> Survei
+                            <a href="{{ route('jawabsurvei') }}">
+                                <i class="bi bi-pencil-fill"></i>  Jawab Survei
                             </a>
                         </li>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ route('detail_survei') }}">
-                                <i class="bi bi-journal-text"></i> Detail Survei
+                            <a href="{{ route('surveidetail') }}">
+                                <i class="bi bi-journal-text"></i> Riwayat Survei
                             </a>
                         </li>
                     </ul>
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ route('editprofil') }}" class='sidebar-link'>
+                    <a href="{{ route('editResponden') }}" class='sidebar-link'>
                         <i class="bi bi-person-circle"></i>
                         <span>Profil</span>
                     </a>
@@ -51,8 +51,8 @@
                 <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
-                            @if(auth()->user())
-                            <span>Nama: <span class="fw-bolder">{{ auth()->user()->nama }}</span></span>
+                            @if(auth('responden')->user())
+                            <span>Nama: <span class="fw-bolder">{{ auth('responden')->user()->nama }}</span></span>
                             @endif
                             <hr>
                             <span>Sebagai:</span>
@@ -75,7 +75,7 @@
                     </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('logout') }}" class='sidebar-link' onclick="confirmSubmission()">
+                    <a href="{{ route('logout_responden') }}" class='sidebar-link' onclick="confirmSubmission()">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Keluar</span>
                     </a>

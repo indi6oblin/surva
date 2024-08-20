@@ -3,6 +3,8 @@
     @extends('admin.sidebar.sudah_bayar')
 @endsection
 @section('content')
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
@@ -258,15 +260,17 @@
                                 <div class="modal-body">
                                     <div>
                                         <label class="form-check-label">
-                                            {{-- Bukti pembayaran belum tersedia --}}
-                                            <img src="http://example.com/uploads/bukti_pembayaran.jpg" alt="Bukti Pembayaran">
-
+                                            @if ($survei->bukti)
+                                                <img src="{{ asset('storage/' . $survei->bukti) }}" alt="Bukti Pembayaran">
+                                            @else
+                                                {{-- <img src="{{ route('bukti_pembayaran', ['id_survei' => $survei->id_survei]) }}" alt="Bukti Pembayaran"> --}}
+                                                Bukti pembayaran belum tersedia
+                                            @endif
                                         </label>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Tutup</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                                 </div>
                             </div>
                         </div>
@@ -301,12 +305,14 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <form action="{{ route('terima_bayar', $survei->id_survei) }}" method="post" id="paidForm">
+                                    <form action="{{ route('terima_bayar', $survei->id_survei) }}" method="post"
+                                        id="paidForm">
                                         @csrf
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                        <button type="submit" class="btn btn-success">Ya</button>
-                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Tutup</button>
+                                            <button type="submit" class="btn btn-success">Ya</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -325,33 +331,36 @@
                         <!-- Modal Tidak -->
                         <div class="modal fade text-left" id="modalTidak" tabindex="-1"
                             aria-labelledby="modalTidakLabel" style="display: none;" aria-hidden="true">
-                            <form action="{{ route('tolak_bayar', $survei->id_survei) }}" method="post" id="unpaidForm">
+                            <form action="{{ route('tolak_bayar', $survei->id_survei) }}" method="post"
+                                id="unpaidForm">
                                 @csrf
-                            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalTidakLabel">Alasan Bukti Pembayaran Ditolak</h5>
-                                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-check">
-                                            <div class="input-group">
-                                                <textarea class="form-control" id="deskripsi_validasi" name="deskripsi_validasi" rows="5" placeholder="Berikan Alasannya Disini" required></textarea>
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalTidakLabel">Alasan Bukti Pembayaran Ditolak
+                                            </h5>
+                                            <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-check">
+                                                <div class="input-group">
+                                                    <textarea class="form-control" id="deskripsi_validasi" name="deskripsi_validasi" rows="5"
+                                                        placeholder="Berikan Alasannya Disini" required></textarea>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            Tutup
-                                        </button>
-                                        <button type="button" class="btn btn-danger"
-                                            onclick="tolakBayar()">Tolak</button>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Tutup
+                                            </button>
+                                            <button type="button" class="btn btn-danger"
+                                                onclick="tolakBayar()">Tolak</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </form>
 
                             <!-- Modal Setuju -->
@@ -405,7 +414,7 @@
             function tolakBayar() {
                 // Menampilkan konfirmasi
                 var konfirmasi = confirm('Apakah Anda yakin ingin menolak bukti pembayaran ini?');
-        
+
                 // Memeriksa apakah pengguna menyetujui atau membatalkan
                 if (konfirmasi) {
                     alert('Anda telah menolak bukti pembayaran.');
@@ -424,7 +433,7 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
             <div class="float-start">
-                <p>2023 &copy; Aplikasi Survey dan Analisis Data</p>
+                <p>2024 &copy; Aplikasi Survey dan Analisis Data</p>
             </div>
         </div>
     </footer>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="auth">
         <div class="row h-100">
             <div class="col-lg-5 col-12">
@@ -49,7 +51,9 @@
                         </div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-2" type="submit">Masuk</button>
                     </form>
-                    <div class="text-center mt-5 text-lg fs-5">
+                    <div class="text-center mt-3 text-lg fs-5">
+                            <p class="text-gray-600">Belum Punya Akun <a href="{{ route('register_responden') }}"
+                                    class="font-bold">Daftar</a>.</p>
                         <p class="text-gray-600"><a href="{{ route('landing.index') }}" class="font-bold"><i class="bi bi-house"></i> Kembali ke Beranda</a>.</p>
                     </div>
                 </div>

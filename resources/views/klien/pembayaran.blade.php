@@ -3,13 +3,14 @@
     @extends('klien.sidebar.pembayaran')
 @endsection
 @section('content')
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        
+
         {{-- <div class="page-heading">
             <section class="row">
                 <div class="col-12 col-lg-9">
@@ -38,7 +39,7 @@
                         </div>
                     </div>
                     {{-- user profile modal --}}
-                    {{-- <div class="card-body">
+        {{-- <div class="card-body">
                         <!--Basic Modal -->
                         <div class="modal fade text-left" id="default" tabindex="-1" aria-labelledby="myModalLabel1"
                             style="display: none;" aria-hidden="true">
@@ -129,14 +130,14 @@
                             </div>
                         </div>
                     </div> --}}
-                    {{-- end user profile modal --}}
+        {{-- end user profile modal --}}
 
-                {{-- </div>
+        {{-- </div>
             </section>
         </div> --}}
         {{-- message --}}
 
-        
+
 
         {!! Toastr::message() !!}
         <div class="page-content">
@@ -149,7 +150,8 @@
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('daftar_pembayaran') }}">Daftar Pembayaran</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('daftar_pembayaran') }}">Daftar Pembayaran</a>
+                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">Pembayaran</li>
                             </ol>
                         </nav>
@@ -161,29 +163,25 @@
                 <div class="col-12 col-lg-9">
                 </div>
                 <div class="col-3 col-lg-3">
-                    
-                    {{-- user profile modal --}}
-                    
-                    {{-- end user profile modal --}}
 
-                {{-- </div> --}}
+                    {{-- user profile modal --}}
+
+            {{-- end user profile modal --}}
+
+            {{-- </div> --}}
             {{-- </section> --}}
 
         </div>
 
-        
-            <section class="section">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Bukti Pembayaran</h4>
-                    </div>
-                @isset($route)
-                <form method="POST" action="{{ $route }}" class="md-float-material">
-                @else
-                    <form action="{{ route('simpan_pembayaran') }}" method="POST" enctype="multipart/form-data" id="buktiForm">
-                        @endisset
-                        @csrf
-                        <input type="hidden" name="id_survei" value="{{ $survei->id_survei }}">
+
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Bukti Pembayaran</h4>
+                </div>
+                <form action="{{ route('simpan_pembayaran') }}" method="POST" enctype="multipart/form-data" id="buktiForm">
+                    @csrf
+                    <input type="hidden" name="id_survei" value="{{ $survei->id_survei }}">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
@@ -194,47 +192,48 @@
                                 <div class="form-group">
                                     <label for="metodePembayaran">Pembayaran</label>
                                     <div style="text-align: center; padding: 20px;">
-                                    <img src="{{ asset('images/scanqrr.jpeg')}}" alt="photo" width="300" height="300" style="display: inline-block; vertical-align: middle;">
+                                        <img src="{{ asset('images/scanqrr.jpeg') }}" alt="photo" width="300"
+                                            height="300" style="display: inline-block; vertical-align: middle;">
                                     </div>
                                 </div>
                             </div>
                             <br>
                             <br>
                             <div class="col-md-12 text-center">
-                                <button type="button" class="btn btn-primary mx-auto d-block" onclick="confirmSubmission()">Kirim Bukti Pembayaran</button>
+                                <button type="button" class="btn btn-primary mx-auto d-block"
+                                    onclick="confirmSubmission()">Kirim Bukti Pembayaran</button>
                             </div>
                         </div>
                     </div>
                 </form>
-                </div>
-            </section>
-            
-            <script>
-                function confirmSubmission() {
-                    // Menampilkan konfirmasi
-                    var konfirmasi = confirm('Apakah Anda yakin ingin mengirim bukti pembayaran?');
+        </section>
 
-                    // Memeriksa apakah pengguna menyetujui atau membatalkan
-                    if (konfirmasi) {
-                        // Jika disetujui, kirim formulir
-                        alert('Bukti pembayaran Anda telah terkirim.');
-                        document.getElementById('buktiForm').submit();
-                    } else {
-                        // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
-                        alert('Pengiriman bukti pembayaran dibatalkan.');
-                        // Hindari pengiriman formulir dengan menghentikan peristiwa default
-                        event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
-                    }
+        <script>
+            function confirmSubmission() {
+                // Menampilkan konfirmasi
+                var konfirmasi = confirm('Apakah Anda yakin ingin mengirim bukti pembayaran?');
+
+                // Memeriksa apakah pengguna menyetujui atau membatalkan
+                if (konfirmasi) {
+                    // Jika disetujui, kirim formulir
+                    alert('Bukti pembayaran Anda telah terkirim.');
+                    document.getElementById('buktiForm').submit();
+                } else {
+                    // Jika dibatalkan, tampilkan pesan atau lakukan tindakan lain
+                    alert('Pengiriman bukti pembayaran dibatalkan.');
+                    // Hindari pengiriman formulir dengan menghentikan peristiwa default
+                    event.preventDefault(); // Anda mungkin perlu memasukkan parameter event ke fungsi Anda
                 }
-            </script>
+            }
+        </script>
 
-        </div>
-        <footer>
-            <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
-                <div class="float-start">
-                    <p>2023 &copy; Aplikasi Survey dan Analisis Data</p>
-                </div>
+    </div>
+    <footer>
+        <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
+            <div class="float-start">
+                <p>2024 &copy; Aplikasi Survey dan Analisis Data</p>
             </div>
-        </footer>
+        </div>
+    </footer>
     </div>
 @endsection

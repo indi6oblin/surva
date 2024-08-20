@@ -3,6 +3,7 @@
     @extends('klien.sidebar.dashboard')
 @endsection
 @section('content')
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
@@ -213,7 +214,7 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
                 <div class="float-start">
-                    <p>2023 &copy; Aplikasi Survey dan Analisis Data</p>
+                    <p>2024 &copy; Aplikasi Survey dan Analisis Data</p>
                 </div>
             </div>
         </footer>

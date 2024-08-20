@@ -3,13 +3,14 @@
     @extends('klien.sidebar.pembayaran')
 @endsection
 @section('content')
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-        
+
         {{-- <div class="page-heading">
             <section class="row">
                 <div class="col-12 col-lg-9">
@@ -136,7 +137,7 @@
         </div> --}}
         {{-- message --}}
 
-        
+
 
         {!! Toastr::message() !!}
         <div class="page-content">
@@ -217,9 +218,9 @@
                 <div class="col-12 col-lg-9">
                 </div>
                 <div class="col-3 col-lg-3">
-                    
+
                     {{-- user profile modal --}}
-                    
+
                     {{-- end user profile modal --}}
 
                 {{-- </div> --}}
@@ -232,7 +233,7 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
                 <div class="float-start">
-                    <p>2023 &copy; Aplikasi Survey dan Analisis Data</p>
+                    <p>2024 &copy; Aplikasi Survey dan Analisis Data</p>
                 </div>
             </div>
         </footer>

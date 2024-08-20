@@ -22,7 +22,7 @@ class Pertanyaan extends Model
         'opsi_3',
         'opsi_4',
         'opsi_5',
-        'essai'
+        'type'
     );
 
     public function survei()
@@ -34,4 +34,6 @@ class Pertanyaan extends Model
     {
         return $this->hasMany(Hasil_survei::class, 'id_hasil');
     }
+
+    
 }

@@ -37,7 +37,7 @@
     font-weight: 700;
 }
 .alert-warning {
-    background-color: #eaca4a;
+    background-color: #3db3c5 ;
     color: #fff;
 }
 .alert-warning a {
@@ -815,7 +815,7 @@
     display: block;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
-    background-color: #d99004;
+    background-color: #3db3c5 ;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link span {
     color: #fff;
@@ -842,7 +842,7 @@
     position: relative;
 }
 .sidebar-wrapper .menu .submenu .submenu-item.active > a {
-    color: #d99004;
+    color: #3db3c5 ;
     font-weight: 700;
 }
 .sidebar-wrapper .menu .submenu .submenu-item a {
@@ -880,7 +880,7 @@
 .nav-tabs .nav-link.active {
     border: none;
     position: relative;
-    color: #d99004;
+    color: #3db3c5 ;
 }
 .nav-tabs .nav-link.active:after {
     content: "";
@@ -888,7 +888,7 @@
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: #d99004;
+    background-color: #3db3c5 ;
     left: 0;
     box-shadow: 0 2px 5px rgba(67, 94, 190, 0.5);
 }
@@ -934,8 +934,8 @@
     display: none;
 }
 .pagination.pagination-primary .page-item.active .page-link {
-    background-color: #d99004;
-    border-color: #d99004;
+    background-color: #3db3c5 ;
+    border-color: #3db3c5 ;
     box-shadow: 0 2px 5px rgba(67, 94, 190, 0.3);
 }
 .pagination.pagination-secondary .page-item.active .page-link {
@@ -954,8 +954,8 @@
     box-shadow: 0 2px 5px rgba(13, 202, 240, 0.3);
 }
 .pagination.pagination-warning .page-item.active .page-link {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #3db3c5 ;
+    border-color: #3db3c5 ;
     box-shadow: 0 2px 5px rgba(255, 193, 7, 0.3);
 }
 .pagination.pagination-danger .page-item.active .page-link {
@@ -1027,7 +1027,7 @@
     overflow: visible;
 }
 .progress.progress-primary .progress-bar {
-    background-color: #d99004;
+    background-color: #3db3c5 ;
     border-radius: 0.25rem;
 }
 .progress.progress-secondary {
@@ -1041,7 +1041,7 @@
     overflow: visible;
 }
 .progress.progress-success .progress-bar {
-    background-color: #198754;
+    background-color: #3db3c5 ;
     border-radius: 0.25rem;
 }
 .progress.progress-info {
@@ -1055,7 +1055,7 @@
     overflow: visible;
 }
 .progress.progress-warning .progress-bar {
-    background-color: #ffc107;
+    background-color: #3db3c5 ;
     border-radius: 0.25rem;
 }
 .progress.progress-danger {
@@ -1231,7 +1231,7 @@ a {
 }
 .bg-light-success {
     background-color: #d2ffe8;
-    color: #00391c;
+    color: #3db3c5 ;
 }
 .bg-light-danger {
     background-color: #ffdede;

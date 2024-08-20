@@ -2,9 +2,10 @@
 namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Klien;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 class ResetPasswordController extends Controller
 {

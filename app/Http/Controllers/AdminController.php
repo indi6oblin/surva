@@ -212,18 +212,16 @@ class AdminController extends Controller
     }
 
     public function paket_pertanyaan()
-    {
-        // $pertanyaan = Pertanyaan::findOrFail::all();
-        $paketPertanyaan = Paket_Pertanyaan::all();
-        return view('admin.sidebar.paket_pertanyaan', compact('paketPertanyaan'));
 
-    }
+{
+    $paketPertanyaan = Paket_Pertanyaan::all();
+    return view('admin.sidebar.paket_pertanyaan', compact('paketPertanyaan'));
+}
 
-    // public function paket_pertanyaan($id_pertanyaan)
-    // {
-    //     $pertanyaan = Pertanyaan::findOrFail($id_pertanyaan);
-    //     $paketpertanyaan = paket_pertanyaan::where('paket_pertanyaan', $pertanyaan->paket_pertanyaan)->get();
+public function kelola_paket_pertanyaan()
+{
+    // Isi dengan logika yang diperlukan
+    return view('admin.kelola_paket_pertanyaan'); // Gantilah dengan nama view yang sesuai
+}
 
-    //     return view('admin.paket_pertanyaan', compact('pertanyaan', 'paketpertanyaan'));
-    // }
 }

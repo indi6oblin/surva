@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\Request;
-use App\Models\Klien;
 use App\Models\Admin;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Klien;
+use App\Models\Responden;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
-use Hash;
+use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -180,7 +181,7 @@ class RegisterController extends Controller
         //     'password_confirmation' => 'required',
         //     ],
         // ]);
-        responden::create([
+        Responden::create([
             'nama'      => $request->nama,
             'username'  => $request->username,
             'email'     => $request->email,

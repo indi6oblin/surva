@@ -1,10 +1,11 @@
 @extends('layouts.master')
-
 @section('menu')
-    @extends('klien.sidebar.dashboard')
+    @extends('responden.sidebar.dashboard_responden')
 @endsection
 
 @section('content')
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
@@ -15,14 +16,14 @@
         {{-- message --}}
         {!! Toastr::message() !!}
         {{-- START FORM --}}
-        <form action="{{ route('simpan_survei') }}" method="post">
+        <form action="/" method="post">
             @csrf
             <div class="page-content">
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Buat Survei</h3>
-                            <p class="text-subtitle text-muted">Tambahkan Survei Anda</p>
+                            <h3>Isi Survei</h3>
+                            <p class="text-subtitle text-muted">Isi survei dengan jawaban bener</p>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -41,7 +42,7 @@
                         </div>
 
                         <div class="card-body">
-                            <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
+                            <input type="hidden" name="id_klien" value="{{ auth('responden')->user()->nama }}" id="id_klien">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">

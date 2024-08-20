@@ -1,3 +1,4 @@
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
@@ -60,11 +61,10 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ route('kelola_responden') }}" class='sidebar-link'>
-                    <i class="bi bi-envelope"></i>
-                        <span>Paket pertanyaan</span>
-                    </a>
-                </li>
+                <a href="{{ route('kelola_paket_pertanyaan') }}" class='sidebar-link'>
+                <i class="bi bi-envelope"></i>
+                 <span>Paket pertanyaan</span>
+                </a>    
                 <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">

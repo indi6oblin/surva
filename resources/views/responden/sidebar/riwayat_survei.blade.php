@@ -1,9 +1,11 @@
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
             <div class="d-flex justify-content-center">
                 <div class="logo">
-                    <a href="{{ route('home_klien') }}">Home</a>
+                    <a href="{{ route('home_responden') }}">Beranda</a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -14,44 +16,34 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
                 <li class="sidebar-item">
-                    <a href="{{ route('home_klien') }}" class='sidebar-link'>
+                    <a href="{{ route('home_responden') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
-                        <span>Dashboard</span>
+                        <span>Halaman Utama</span>
                     </a>
                 </li>
-                <li class="sidebar-item has-sub">
+                <li class="sidebar-item has-sub active">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-file-text-fill"></i>
                         <span>Survei</span>
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="{{ route('buat_survei') }}">
-                                <i class="bi bi-plus-circle-fill"></i> Buat Survei
+                            <a href="{{ route('jawabsurvei') }}">
+                                <i class="bi bi-pencil-fill"></i>  Jawab Survei
                             </a>
                         </li>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="{{ route('detail_survei') }}">
-                                <i class="bi bi-menu-button-wide-fill"></i> Detail Survei
+                        <li class="submenu-item active">
+                            <a href="{{ route('surveidetail') }}">
+                                <i class="bi bi-journal-text"></i> Riwayat Survei
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item active">
-                    <a href="{{ route('daftar_pembayaran') }}" class='sidebar-link'>
-                        <i class="bi bi-credit-card-fill"></i>
-                        <span>Pembayaran</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="{{ route('verifikasi') }}" class='sidebar-link'>
-                        <i class="bi bi-patch-check-fill"></i>
-                        <span>Verifikasi</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('editprofil') }}" class='sidebar-link'>
+                    <a href="{{ route('editResponden') }}" class='sidebar-link'>
                         <i class="bi bi-person-circle"></i>
                         <span>Profil</span>
                     </a>
@@ -59,8 +51,8 @@
                 <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
-                            @if(auth()->user())
-                            <span>Nama: <span class="fw-bolder">{{ auth()->user()->nama }}</span></span>
+                            @if(auth('responden')->user())
+                            <span>Nama: <span class="fw-bolder">{{ auth('responden')->user()->nama }}</span></span>
                             @endif
                             <hr>
                             <span>Sebagai:</span>
@@ -69,6 +61,7 @@
                         </div>
                     </div>
                 </li>
+
                     <li class="sidebar-item  has-sub visually-hidden">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
@@ -82,7 +75,7 @@
                     </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('logout') }}" class='sidebar-link' onclick="confirmSubmission()">
+                    <a href="{{ route('logout_responden') }}" class='sidebar-link' onclick="confirmSubmission()">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Keluar</span>
                     </a>

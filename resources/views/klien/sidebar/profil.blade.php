@@ -1,3 +1,5 @@
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">

@@ -93,12 +93,12 @@ class KlienController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit()
-    {
-        $id_klien = Auth::user()->id_klien;
-        $klien = Klien::find($id_klien);
+{
+    $id_klien = Auth::user()->id_klien;
+    $klien = Klien::find($id_klien);
+    return view('klien.profil', compact('klien'));
+}
 
-        return view('klien.profil', compact('klien'));
-    }
 
     /**
      * Update the specified resource in storage.

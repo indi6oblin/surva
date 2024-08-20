@@ -1,3 +1,5 @@
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
@@ -36,6 +38,11 @@
                                 <i class="bi bi-menu-button-wide-fill"></i> Detail Survei
                             </a>
                         </li>
+                        {{-- <li class="submenu-item active">
+                            <a href="{{ route('detail_survei') }}">
+                                <i class="bi bi-menu-button-wide-fill"></i> Paket Pertanyaan
+                            </a>
+                        </li> --}}
                     </ul>
                 </li>
                 <li class="sidebar-item">

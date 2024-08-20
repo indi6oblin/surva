@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
@@ -14,7 +16,7 @@
                 body {
                     padding-bottom: 100px; /* Menyisipkan padding pada bagian bawah body sesuai dengan tinggi card */
                 }
-        
+
                 #fixedCard {
                     position: fixed;
                     bottom: 0;
@@ -68,9 +70,9 @@
                         <div class="card-header">
                             <h4 class="card-title">Judul dan Deskripsi</h4>
                         </div>
-                        
+
                         <div class="card-body">
-                            <input type="hidden" name="id_klien" value="{{ auth()->user()->id_klien }}" id="id_klien">
+                            <input type="hidden" name="id_klien" value="{{ auth()->user()->nama }}" id="id_klien">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -133,7 +135,7 @@
                                                         <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control" id="opsi_1" placeholder="Opsi 1" name="opsi_1[]"> 
+                                                <input type="text" class="form-control" id="opsi_1" placeholder="Opsi 1" name="opsi_1[]">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -178,10 +180,6 @@
                                         </div>
                                     </div>
                                     <div class="essay-option" style="display: none;">
-                                        <div class="form-group">
-                                            <label for="jawaban_essai" class="form-label">Jawaban Essai</label>
-                                            <textarea class="form-control" id="jawaban_essai" rows="3" name="jawaban_essai[]" disabled></textarea>
-                                        </div>
                                     </div>
                                 </div>
                                 <div style="overflow: auto;">
@@ -195,7 +193,7 @@
 
                 <button type="button" class="btn btn-success" onclick="addSection()">Tambah Pertanyaan</button>
                 <!-- <button type="button" class="btn btn-danger" onclick="removeSection()">Hapus Pertanyaan</button> -->
-    
+
                 {{-- <div id="fixedCard" class="card">
                     <div class="card-body">
                         <h4 class="card-title">Harga Survei: <span id="totalHarga">5000</span></h4>
@@ -210,19 +208,19 @@
                 </div> --}}
                 <button type="submit" class="btn btn-primary float-right" onclick="submitForm(e)">Kirim Survei</button>
             </div>
-            
+
             <br>
             <br>
             <footer>
                 <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
                     <div class="float-start">
-                        <p>2023 &copy; Aplikasi Survey dan Analisis Data</p>
+                        <p>2024 &copy; Aplikasi Survey dan Analisis Data</p>
                     </div>
                 </div>
             </footer>
         </form>
     </div>
-    
+
     {{-- END FORM --}}
 
     <script>
@@ -304,7 +302,7 @@
         function toggleQuestionType(selectElement) {
             var selectedValue = selectElement.value;
             var parentSection = $(selectElement).closest('.section');
-            
+
             if (selectedValue === 'essay') {
                 parentSection.find('.multiple-choice-options').hide();
                 parentSection.find('.essay-option').show();
@@ -353,11 +351,11 @@
                 }
             });
 
-            } else { 
+            } else {
                 return false;
             }
             // Loop through each section and submit the data
-            
+
         }
 
         function updateTotalHarga() {

@@ -7,7 +7,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Staff;
 use App\Models\User;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class FormController extends Controller
 {
@@ -68,7 +68,7 @@ class FormController extends Controller
         }
     }
 
-    // save 
+    // save
     public function saveRecord(Request $request)
     {
         $request->validate([

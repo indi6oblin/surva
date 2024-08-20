@@ -8,7 +8,7 @@ body {
 #auth #auth-right {
     height: 100%;
     background: url(../../images/bg/4853433.jpg),
-        linear-gradient(90deg, #d99004, #bc7a00);
+        linear-gradient(90deg, #3db3c5 , #3db3c5 );
 }
 #auth #auth-left {
     padding: 3rem 8rem;

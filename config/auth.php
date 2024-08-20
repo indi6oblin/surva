@@ -40,10 +40,15 @@ return [
             'driver' => 'session',
             'provider' => 'klien',
         ],
-        
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admin',
+        ],
+
+        'responden' => [
+            'driver' => 'session',
+            'provider' => 'responden',
         ],
 
         'api' => [
@@ -86,6 +91,11 @@ return [
             'model' => App\Models\Admin::class,
         ],
 
+        'responden' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Responden::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -123,6 +133,12 @@ return [
 
         'admin' => [
             'provider' => 'admin',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'responden' => [
+            'provider' => 'responden',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

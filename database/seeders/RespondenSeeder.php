@@ -22,5 +22,12 @@ class RespondenSeeder extends Seeder
              'poin' => null],
             ['password' => Hash::make('Responden12345')],
         );
+        Responden::firstOrCreate(
+            ['username' => 'Ririn Safitri',
+             'nama' => 'ririn',
+             'email' => 'ririn@gmail.com',
+             'poin' => null],
+            ['password' => Hash::make('Ririn12345')],
+        );
     }
 }

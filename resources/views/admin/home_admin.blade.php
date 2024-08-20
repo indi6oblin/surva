@@ -3,6 +3,8 @@
     @extends('admin.sidebar.dashboard_admin')
 @endsection
 @section('content')
+
+<link href="landingPage/assets/img/logoapp.png" rel="icon">
     <div id="main">
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
@@ -270,7 +272,7 @@
                                         <span class="badge {{ $badgeColor }}">{{ $status }}</span>
                                     </td>
                                     <td>
-                                        <a href="{{ route('detail_survei_home', ['id_survei' => $item->id_survei]) }}">
+                                        <a href="{{ route('detail_survei_sortir', ['id_survei' => $item->id_survei]) }}">
                                             <span class="badge" style="background-color: #D99004;">Detail</span>
                                         </a>
                                     </td>
@@ -300,7 +302,7 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted d-flex justify-content-center align-items-end">
                 <div class="float-start">
-                    <p>2023 &copy; Aplikasi Survey dan Analisa Data</p>
+                    <p>2024 &copy; Aplikasi Survey dan Analisa Data</p>
                 </div>
             </div>
         </footer>

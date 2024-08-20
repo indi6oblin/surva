@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use DB;
 use App\Models\Admin;
 use App\Models\Klien;
-use DB;
+use App\Models\Responden;
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Support\Renderable;
 
 class HomeController extends Controller
 {
@@ -22,12 +24,13 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
     public function index_admin()
     {
         $klien = Klien::count();
         $admin = Admin::count();
-        return view('home',compact('klien', 'admin'));
+        $responden = Responden::count();
+        return view('home',compact('klien', 'admin', 'responden'));
     }
 }

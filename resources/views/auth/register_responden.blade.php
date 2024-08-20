@@ -85,8 +85,8 @@
                         <div class="form-group position-relative has-icon-left mb-4">
                             <select class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
                                 <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
+                                <option value="laki-laki">Laki-laki</option>
+                                <option value="perempuan">Perempuan</option>
                             </select>
                             <div class="form-control-icon">
                                 <i class="bi bi-gender-ambiguous"></i>
