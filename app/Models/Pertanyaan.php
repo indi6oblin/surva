@@ -14,15 +14,24 @@ class Pertanyaan extends Model
 
 
     protected $fillable = array(
-        'id_pertanyaan', 'id_survei', 'pertanyaan', 'opsi_1', 'opsi_2', 'opsi_3', 'opsi_4', 'opsi_5',
+        'id_pertanyaan',
+        'id_survei',
+        'pertanyaan',
+        'opsi_1',
+        'opsi_2',
+        'opsi_3',
+        'opsi_4',
+        'opsi_5',
+        'essai'
     );
 
-    public function survei(){
+    public function survei()
+    {
         return $this->belongsTo(Survei::class, 'id_survei');
     }
 
     public function hasil_survei()
     {
-    return $this->hasMany(Hasil_survei::class, 'id_hasil'); 
+        return $this->hasMany(Hasil_survei::class, 'id_hasil');
     }
 }

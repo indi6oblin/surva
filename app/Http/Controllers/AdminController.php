@@ -11,7 +11,8 @@ use App\Models\Klien;
 use App\Models\paket_pertanyaan;
 use App\Models\Responden;
 use App\Models\Survei;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 
 class AdminController extends Controller
@@ -211,9 +212,18 @@ class AdminController extends Controller
     }
 
     public function paket_pertanyaan()
-{
-    $paketPertanyaan = Paket_Pertanyaan::all();
-    return view('admin.sidebar.paket_pertanyaan', compact('paketPertanyaan'));
-}
-    
+    {
+        // $pertanyaan = Pertanyaan::findOrFail::all();
+        $paketPertanyaan = Paket_Pertanyaan::all();
+        return view('admin.sidebar.paket_pertanyaan', compact('paketPertanyaan'));
+
+    }
+
+    // public function paket_pertanyaan($id_pertanyaan)
+    // {
+    //     $pertanyaan = Pertanyaan::findOrFail($id_pertanyaan);
+    //     $paketpertanyaan = paket_pertanyaan::where('paket_pertanyaan', $pertanyaan->paket_pertanyaan)->get();
+
+    //     return view('admin.paket_pertanyaan', compact('pertanyaan', 'paketpertanyaan'));
+    // }
 }

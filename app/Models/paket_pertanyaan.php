@@ -10,19 +10,26 @@ class paket_pertanyaan extends Model
     use HasFactory;
 
     protected $table = 'paket_pertanyaan';
-    protected $primaryKey = 'id_pertanyaan';
+    protected $primaryKey = 'id_paket';
 
     protected $fillable = [
+        'id_paket',
         'id_survei',
-        'pertanyaan',
-        'opsi_1',
-        'opsi_2',
-        'opsi_3',
-        'opsi_4',
-        'opsi_5',
-        'essai',
-        'paket_pertanyaan',
+        'nama_paket',
+        'jumlah_responden',
     ];
+
+    // protected $fillable = [
+    //     'id_survei',
+    //     'pertanyaan',
+    //     'opsi_1',
+    //     'opsi_2',
+    //     'opsi_3',
+    //     'opsi_4',
+    //     'opsi_5',
+    //     'essai',
+    //     'paket_pertanyaan',
+    // ];
 
     public function survei()
     {
